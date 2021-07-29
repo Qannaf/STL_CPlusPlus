@@ -7,34 +7,39 @@ The Standard Template Library (STL) is a set of C++ template classes to provide 
         1. [Sorting](#1a1)
         1. [Searching](#1a2)
         1. [Important STL Algorithms](#1a3)
-            1. [Non-Manipulating Algorithms](#1a3a)
-                1. [sort(first_iterator, last_iterator)](#1a3a1)
-                1. [reverse(first_iterator, last_iterator)](#1a3a2)
-                1. [*max_element (first_iterator, last_iterator)](#1a3a3)
-                1. [*min_element (first_iterator, last_iterator)](#1a3a4)
-                1. [accumulate(first_iterator, last_iterator, initial value of sum)](#1a3a5)
-                1. [count(first_iterator, last_iterator,x)](#1a3a6)
-                1. [find(first_iterator, last_iterator, x)](#1a3a7)
-                1. [ binary_search(first_iterator, last_iterator, x)](#1a3a8)
-                1. [lower_bound(first_iterator, last_iterator, x)](#1a3a9)
-                1. [upper_bound(first_iterator, last_iterator, x)](#1a3a10)
-
-            1. [Some Manipulating Algorithms](#1a3b)
-                1. [arr.erase(position to be deleted)](#1a3b1)
-                1. [arr.erase(unique(arr.begin(),arr.end()),arr.end())](#1a3b2)
-                1. [next_permutation(first_iterator, last_iterator)](#1a3b3)
-                1. [prev_permutation(first_iterator, last_iterator)](#1a3b4)
-                1. [distance(first_iterator,desired_position)](#1a3b5)
+            1. [sort(first_iterator, last_iterator)](#1a3a1)
+            1. [reverse(first_iterator, last_iterator)](#1a3a2)
+            1. [*max_element (first_iterator, last_iterator)](#1a3a3)
+            1. [*min_element (first_iterator, last_iterator)](#1a3a4)
+            1. [accumulate(first_iterator, last_iterator, initial value of sum)](#1a3a5)
+            1. [count(first_iterator, last_iterator,x)](#1a3a6)
+            1. [find(first_iterator, last_iterator, x)](#1a3a7)
+            1. [binary_search(first_iterator, last_iterator, x)](#1a3a8)
+            1. [lower_bound(first_iterator, last_iterator, x)](#1a3a9)
+            1. [upper_bound(first_iterator, last_iterator, x)](#1a3a10)
+            1. [Test](#f)
+            1. [arr.erase(position to be deleted)](#1a3b1)
+            1. [arr.erase(unique(arr.begin(),arr.end()),arr.end())](#1a3b2)
+            1. [next_permutation(first_iterator, last_iterator)](#1a3b3)
+            1. [prev_permutation(first_iterator, last_iterator)](#1a3b4)
+            1. [distance(first_iterator,desired_position)](#1a3b5)
         1. [Useful Array algorithms](#1a4)
-            1. [all_of](#)
-            1. [any_of](#)
-            1. [none_of](#)
-            1. [copy_n](#)
-            1. [iota](#)
+            1. [all_of](#1a4a)
+            1. [any_of](#1a4b)
+            1. [none_of](#1a4c)
+            1. [copy_n](#1a4d)
+            1. [iota](#1a4e)
 
         1. [Partition Operations](#1a5)
     1. [Numeric](#1b)
         1. [valarray class](#1b1)
+            1. [apply()](#1b1a)
+            1. [sum()](#1b1b)
+            1. [min()](#1b1c)
+            1. [max()](#1b1d)
+            1. [shift()](#1b1e)
+            1. [Cshift()](#1b1f)
+            1. [swap()](#1b1g)
 
 1. [Containers](#2)
     1. [Sequence Containers](#2a)
@@ -68,7 +73,7 @@ The Standard Template Library (STL) is a set of C++ template classes to provide 
     1. [Pair](#5a)
 
 
-
+<a name="f"></a>
 <a name="1"></a>
 ## Algorithms
 
@@ -214,25 +219,13 @@ Element not found in the array</pre></div>
 * Important STL Algorithms
 <a name="1a3a"></a>
   * Non-Manipulating Algorithms
-<a name="1a3a1"></a>
-    * sort(first_iterator, last_iterator) – To sort the given vector.
-    * reverse(first_iterator, last_iterator) – To reverse a vector.
-    * *max_element (first_iterator, last_iterator) – To find the maximum element of a vector.
-    * *min_element (first_iterator, last_iterator) – To find the minimum element of a vector.
-    * accumulate(first_iterator, last_iterator, initial value of sum) – Does the summation of vector elements
-    <br>
-    <br>
-    * count(first_iterator, last_iterator,x) – To count the occurrences of x in vector.
-    * find(first_iterator, last_iterator, x) – Returns an iterator to the first occurence of x in vector and points to last address of vector ((name_of_vector).end()) if element is not present in vector.
-    <br>
-    <br>
-    * binary_search(first_iterator, last_iterator, x) – Tests whether x exists in sorted vector or not.
-
-    * lower_bound(first_iterator, last_iterator, x) – returns an iterator pointing to the first element in the range [first,last) which         has a value not less than ‘x’.
-
-    * upper_bound(first_iterator, last_iterator, x) – returns an iterator pointing to the first element in the range [first,last)                  which has a value greater than ‘x’. 
-
-
+<a name="1a3a1"></a><a name="1a3a2"></a><a name="1a3a3"></a><a name="1a3a4"></a><a name="1a3a5"></a>
+    1. sort(first_iterator, last_iterator) – To sort the given vector.
+    2. reverse(first_iterator, last_iterator) – To reverse a vector.
+    3. *max_element (first_iterator, last_iterator) – To find the maximum element of a vector.
+    4. *min_element (first_iterator, last_iterator) – To find the minimum element of a vector.
+    5. accumulate(first_iterator, last_iterator, initial value of sum) – Does the summation of vector elements
+   
 
 
 ```CPP
@@ -289,7 +282,12 @@ Maximum element of vector is: 42
 Minimum element of vector is: 5
 The summation of vector elements is: 115</pre></div>
   
+<br>
+<br>
+<a name="1a3a6"></a><a name="1a3a7"></a>
 
+6. count(first_iterator, last_iterator,x) – To count the occurrences of x in vector.
+7. find(first_iterator, last_iterator, x) – Returns an iterator to the first occurence of x in vector and points to last address of vector ((name_of_vector).end()) if element is not present in vector.
 
 
 
@@ -327,6 +325,14 @@ int main()
 Element found</pre></div>
 
 
+<a name="1a3a8"></a><a name="1a3a9"></a><a name="1a3a10"></a>
+<br><br>
+
+8. binary_search(first_iterator, last_iterator, x)<br> – Tests whether x exists in sorted vector or not.
+
+9. lower_bound(first_iterator, last_iterator, x) <br>– returns an iterator pointing to the first element in the range [first,last) which         has a value not less than ‘x’.
+
+10. upper_bound(first_iterator, last_iterator, x) <br>– returns an iterator pointing to the first element in the range [first,last)                  which has a value greater than ‘x’. 
 ```CPP
 // C++ program to demonstrate working of lower_bound()
 // and upper_bound().
@@ -364,21 +370,12 @@ int main()
 <div class="code-output"><strong>Output</strong><pre>The lower bound is at position: 3
 The upper bound is at position: 5</pre></div>
 
-<a name="#1a3b"></a>
-* Some Manipulating Algorithms
-    * arr.erase(position to be deleted) – This erases selected element in vector and shifts and resizes the vector elements accordingly.
-    * arr.erase(unique(arr.begin(),arr.end()),arr.end()) – This erases the duplicate occurrences in sorted vector in a single line.
-    <br>
-    <br>
-    * next_permutation(first_iterator, last_iterator) – This modified the vector to its next permutation.
 
-    * prev_permutation(first_iterator, last_iterator) – This modified the vector to its previous permutation. 
-    <br>
-    <br>
-    * distance(first_iterator,desired_position) – It returns the distance of desired position from the first iterator.This function               is very useful while finding the index. 
+<a name="#1a3b1"></a><a name="#1a3b2"></a>
 
-
-
+11. arr.erase(position to be deleted) <br>– This erases selected element in vector and shifts and resizes the vector elements accordingly.
+12. arr.erase(unique(arr.begin(),arr.end()),arr.end()) <br>– This erases the duplicate occurrences in sorted vector in a single line.
+ 
 
 ```CPP
 // C++ program to demonstrate working of erase()
@@ -428,7 +425,12 @@ Vector after erasing the element: 5 15 20 20 23
 Vector before removing duplicate  occurrences: 5 15 20 20 23 
 Vector after deleting duplicates: 5 15 20 23 42 45 </pre></div>
 
+<br><br>
 
+<a name="#1a3b4"></a><a name="#1a3b3"></a>
+
+3. next_permutation(first_iterator, last_iterator) – This modified the vector to its next permutation.
+4. prev_permutation(first_iterator, last_iterator) – This modified the vector to its previous permutation. 
 
 
 ```CPP
@@ -472,7 +474,11 @@ Vector after performing next permutation:
 5 10 15 20 20 23 45 42 
 Vector after performing prev permutation:
 5 10 15 20 20 23 42 45 </pre></div>
+<br><br>
 
+<a name="#1a3b5"></a>
+
+5. distance(first_iterator,desired_position) – It returns the distance of desired position from the first iterator.This function               is very useful while finding the index.
 
 
 ```CPP
@@ -823,4 +829,178 @@ The elements that return false for condition are : 1 5 7</pre>
 <a name="#1b"></a>
 ### Numeric
 <a name="#1b1"></a>
-1. [valarray class](#1b1)
+* valarray class
+
+<a name="#1b1a"></a>
+Public member functions in valarray class :
+1. apply() :- This function applies the manipulation given in its arguments to all the valarray elements at once and returns a new valarray with manipulated values.
+<a name="#1b1b"></a>
+2. sum() :- This function returns the summation of all the elements of valarrays at
+```CPP
+// C++ code to demonstrate the working of
+// apply() and sum()
+#include<iostream>
+#include<valarray> // for valarray functions
+using namespace std;
+int main()
+{
+	// Initializing valarray
+	valarray<int> varr = { 10, 2, 20, 1, 30 };
+	
+	// Declaring new valarray
+	valarray<int> varr1 ;
+	
+	// Using apply() to increment all elements by 5
+	varr1 = varr.apply([](int x){return x=x+5;});
+	
+	// Displaying new elements value
+	cout << "The new valarray with manipulated values is : ";
+	for (int &x: varr1) cout << x << " ";
+	cout << endl;
+	
+	// Displaying sum of both old and new valarray
+	cout << "The sum of old valarray is : ";
+	cout << varr.sum() << endl;
+	cout << "The sum of new valarray is : ";
+	cout << varr1.sum() << endl;
+
+	return 0;
+	
+}
+```
+<p>Output</p>
+<pre>The new valarray with manipulated values is : 15 7 25 6 35 
+The sum of old valarray is : 63
+The sum of new valarray is : 88</pre>
+
+
+<a name="#1b1c"></a>
+3. min() :- This function returns the smallest element of valarray.
+<a name="#1b1d"></a>
+4. max() :- This function returns the largest element of valarray.
+```CPP
+// C++ code to demonstrate the working of
+// max() and min()
+#include<iostream>
+#include<valarray> // for valarray functions
+using namespace std;
+int main()
+{
+	// Initializing valarray
+	valarray<int> varr = { 10, 2, 20, 1, 30 };
+	
+	// Displaying largest element of valarray
+	cout << "The largest element of valarray is : ";
+	cout << varr.max() << endl;
+	
+	// Displaying smallest element of valarray
+	cout << "The smallest element of valarray is : ";
+	cout << varr.min() << endl;
+
+	return 0;
+	
+}
+```
+<p>Output</p>
+<pre>The largest element of valarray is : 30
+The smallest element of valarray is : 1</pre>
+
+
+<a name="#1b1e"></a>
+5. shift() :- This function returns the new valarray after shifting elements by the number mentioned in its argument. If the number is positive, left-shift is applied, if number is negative, right-shift is applied.
+
+<a name="#1b1f"></a>
+6. cshift() :- This function returns the new valarray after circularly shifting(rotating) elements by the number mentioned in its argument. If the number is positive, left-circular shift is applied, if number is negative, right-circular shift is applied.
+```CPP
+// C++ code to demonstrate the working of
+// shift() and cshift()
+#include<iostream>
+#include<valarray> // for valarray functions
+using namespace std;
+int main()
+{
+	// Initializing valarray
+	valarray<int> varr = { 10, 2, 20, 1, 30 };
+	
+	// Declaring new valarray
+	valarray<int> varr1;
+	
+	// using shift() to shift elements to left
+	// shifts valarray by 2 position
+	varr1 = varr.shift(2);
+	
+	// Displaying elements of valarray after shifting
+	cout << "The new valarray after shifting is : ";
+	for ( int&x : varr1) cout << x << " ";
+	cout << endl;
+	
+	// using cshift() to circulary shift elements to right
+	// rotates valarray by 3 position
+	varr1 = varr.cshift(-3);
+	
+	// Displaying elements of valarray after circular shifting
+	cout << "The new valarray after circular shifting is : ";
+	for ( int&x : varr1) cout << x << " ";
+	cout << endl;
+
+	return 0;
+	
+}
+```
+<p>Output</p>
+<pre>The new valarray after shifting is : 20 1 30 0 0 
+The new valarray after circular shifting is : 20 1 30 10 2</pre>
+
+<a name="#1b1g"></a>
+7. swap() :- This function swaps one valarray with other.
+```CPP
+// C++ code to demonstrate the working of
+// swap()
+#include<iostream>
+#include<valarray> // for valarray functions
+using namespace std;
+int main()
+{
+// Initializing 1st valarray
+	valarray<int> varr1 = {1, 2, 3, 4};
+	
+	// Initializing 2nd valarray
+	valarray<int> varr2 = {2, 4, 6, 8};
+	
+	// Displaying valarrays before swapping
+	cout << "The contents of 1st valarray "
+			"before swapping are : ";
+	for (int &x : varr1)
+		cout << x << " ";
+	cout << endl;
+	cout << "The contents of 2nd valarray "
+			"before swapping are : ";
+	for (int &x : varr2)
+		cout << x << " ";
+	cout << endl;
+	
+	// Use of swap() to swap the valarrays
+	varr1.swap(varr2);
+	
+	// Displaying valarrays after swapping
+	cout << "The contents of 1st valarray "
+			"after swapping are : ";
+	for (int &x : varr1)
+		cout << x << " ";
+	cout << endl;
+	
+	cout << "The contents of 2nd valarray "
+			"after swapping are : ";
+	for (int &x : varr2)
+		cout << x << " ";
+	cout << endl;
+
+	return 0;
+	
+}
+```
+<p>Output</p>
+<pre>The contents of 1st valarray before swapping are : 1 2 3 4 
+The contents of 2nd valarray before swapping are : 2 4 6 8 
+The contents of 1st valarray after swapping are : 2 4 6 8 
+The contents of 2nd valarray after swapping are : 1 2 3 4 </pre>
