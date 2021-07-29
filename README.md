@@ -17,7 +17,6 @@ The Standard Template Library (STL) is a set of C++ template classes to provide 
             1. [binary_search(first_iterator, last_iterator, x)](#1a3a8)
             1. [lower_bound(first_iterator, last_iterator, x)](#1a3a9)
             1. [upper_bound(first_iterator, last_iterator, x)](#1a3a10)
-            1. [Test](#f)
             1. [arr.erase(position to be deleted)](#1a3b1)
             1. [arr.erase(unique(arr.begin(),arr.end()),arr.end())](#1a3b2)
             1. [next_permutation(first_iterator, last_iterator)](#1a3b3)
@@ -29,8 +28,12 @@ The Standard Template Library (STL) is a set of C++ template classes to provide 
             1. [none_of](#1a4c)
             1. [copy_n](#1a4d)
             1. [iota](#1a4e)
-
         1. [Partition Operations](#1a5)
+            1. [partition(beg, end, condition)](#1a5a)
+            1. [is_partitioned(beg, end, condition)](#1a5b)
+            1. [partition_point(beg, end, condition)](#1a5c)
+            1. [stable_partition(beg, end, condition)](#1a5d)
+            1. [partition_copy(beg, end, beg1, beg2, condition)](#1a5e)
     1. [Numeric](#1b)
         1. [valarray class](#1b1)
             1. [apply()](#1b1a)
@@ -73,7 +76,7 @@ The Standard Template Library (STL) is a set of C++ template classes to provide 
     1. [Pair](#5a)
 
 
-<a name="f"></a>
+
 <a name="1"></a>
 ## Algorithms
 
@@ -220,11 +223,12 @@ Element not found in the array</pre></div>
 <a name="1a3a"></a>
   * Non-Manipulating Algorithms
 <a name="1a3a1"></a><a name="1a3a2"></a><a name="1a3a3"></a><a name="1a3a4"></a><a name="1a3a5"></a>
-    1. sort(first_iterator, last_iterator) – To sort the given vector.
-    2. reverse(first_iterator, last_iterator) – To reverse a vector.
-    3. *max_element (first_iterator, last_iterator) – To find the maximum element of a vector.
-    4. *min_element (first_iterator, last_iterator) – To find the minimum element of a vector.
-    5. accumulate(first_iterator, last_iterator, initial value of sum) – Does the summation of vector elements
+
+1. sort(first_iterator, last_iterator) – To sort the given vector.
+2. reverse(first_iterator, last_iterator) – To reverse a vector.
+3. *max_element (first_iterator, last_iterator) – To find the maximum element of a vector.
+4. *min_element (first_iterator, last_iterator) – To find the minimum element of a vector.
+5. accumulate(first_iterator, last_iterator, initial value of sum) – Does the summation of vector elements
    
 
 
@@ -333,6 +337,8 @@ Element found</pre></div>
 9. lower_bound(first_iterator, last_iterator, x) <br>– returns an iterator pointing to the first element in the range [first,last) which         has a value not less than ‘x’.
 
 10. upper_bound(first_iterator, last_iterator, x) <br>– returns an iterator pointing to the first element in the range [first,last)                  which has a value greater than ‘x’. 
+
+
 ```CPP
 // C++ program to demonstrate working of lower_bound()
 // and upper_bound().
@@ -371,7 +377,7 @@ int main()
 The upper bound is at position: 5</pre></div>
 
 
-<a name="#1a3b1"></a><a name="#1a3b2"></a>
+<a name="1a3b1"></a><a name="1a3b2"></a>
 
 11. arr.erase(position to be deleted) <br>– This erases selected element in vector and shifts and resizes the vector elements accordingly.
 12. arr.erase(unique(arr.begin(),arr.end()),arr.end()) <br>– This erases the duplicate occurrences in sorted vector in a single line.
@@ -427,10 +433,10 @@ Vector after deleting duplicates: 5 15 20 23 42 45 </pre></div>
 
 <br><br>
 
-<a name="#1a3b4"></a><a name="#1a3b3"></a>
+<a name="1a3b4"></a><a name="1a3b3"></a>
 
-3. next_permutation(first_iterator, last_iterator) – This modified the vector to its next permutation.
-4. prev_permutation(first_iterator, last_iterator) – This modified the vector to its previous permutation. 
+13. next_permutation(first_iterator, last_iterator) – This modified the vector to its next permutation.
+14. prev_permutation(first_iterator, last_iterator) – This modified the vector to its previous permutation. 
 
 
 ```CPP
@@ -476,9 +482,9 @@ Vector after performing prev permutation:
 5 10 15 20 20 23 42 45 </pre></div>
 <br><br>
 
-<a name="#1a3b5"></a>
+<a name="1a3b5"></a>
 
-5. distance(first_iterator,desired_position) – It returns the distance of desired position from the first iterator.This function               is very useful while finding the index.
+15. distance(first_iterator,desired_position) – It returns the distance of desired position from the first iterator.This function               is very useful while finding the index.
 
 
 ```CPP
@@ -505,26 +511,11 @@ int main()
 <div class="code-output"><strong>Output</strong><pre>Distance between first to max element: 7</pre></div>
 
 
-<a name="#1a4"></a>
+<a name="1a4"></a>
 * Useful Array algorithms
-  * all_of()<br> This function operates on whole range of array elements and can save time to run a loop to check each elements one by one. It checks for a given property on every element and returns true when each element in range satisfies specified property, else returns false.
-<br>
-<br>
-  * any_of() <br> This function checks for a given range if there’s even one element satisfying a given property mentioned in function. Returns true if at least one element satisfies the property else returns false.
-<br>
-  * none_of() <br>This function returns true if none of elements satisfies the given condition else returns false.
-  <br>
-<br>
-  * copy_n() <br>
-copy_n() copies one array elements to new array. This type of copy creates a deep copy of array. This function takes 3 arguments, source array name, size of array and the target array name.
-<br>
-<br>
-  * iota() <br>This function is used to assign continuous values to array. This function accepts 3 arguments, the array name, size, and the starting number.
+<a name="1a4a"></a>
 
-<br>
-<br>
-
-
+1. all_of()<br> This function operates on whole range of array elements and can save time to run a loop to check each elements one by one. It checks for a given property on every element and returns true when each element in range satisfies specified property, else returns false.
 
 ```CPP
 // C++ code to demonstrate working of all_of()
@@ -548,6 +539,12 @@ int main()
 <p>Output</p>
 <pre>All are not positive elements</pre>
 In the above code, -6 being a negative element negates the condition and returns false.
+<br>
+<br>
+
+<a name="1a4b"></a>
+
+2. any_of() <br> This function checks for a given range if there’s even one element satisfying a given property mentioned in function. Returns true if at least one element satisfies the property else returns false.
 
 ```CPP
 // C++ code to demonstrate working of any_of()
@@ -571,6 +568,11 @@ int main()
 <p>Output</p>
 <pre>There exists a negative element</pre>
 In above code, -6 makes the condition positive.
+<br>
+<br>
+
+<a name="1a4c"></a>
+3. none_of() <br>This function returns true if none of elements satisfies the given condition else returns false.
 
 ```CPP
 // C++ code to demonstrate working of none_of()
@@ -595,6 +597,11 @@ int main()
 Since all elements are positive, the function returns true.
 
 
+<br>
+<br>
+<a name="1a4d"></a>
+4. copy_n() <br>
+copy_n() copies one array elements to new array. This type of copy creates a deep copy of array. This function takes 3 arguments, source array name, size of array and the target array name.
 
 ```CPP
 // C++ code to demonstrate working of copy_n()
@@ -626,6 +633,10 @@ int main()
 In the above code, the elements of ar are copied in ar1 using copy_n()
 
 
+
+<a name="1a4e"></a>
+5. iota() <br>This function is used to assign continuous values to array. This function accepts 3 arguments, the array name, size, and the starting number.
+
 ```CPP
 // C++ code to demonstrate working of iota()
 #include<iostream>
@@ -655,15 +666,10 @@ In the above code, continuous values are assigned to array using iota().
 
 <a name="1a5"></a>
 * Partition Operations
-  * partition(beg, end, condition) :<br>- This function is used to partition the elements on basis of condition mentioned in its arguments.
-  * is_partitioned(beg, end, condition) :<br>- This function returns boolean true if container is partitioned else returns false.
-<br>
-<br>
-  * stable_partition(beg, end, condition) :<br>- This function is used to partition the elements on basis of condition mentioned in its arguments in such a way that the relative order of the elements is preserved..
-  * partition_point(beg, end, condition) :<br>- This function returns an iterator pointing to the partition point of container i.e. the first element in the partitioned range [beg,end) for which condition is not true. The container should already be partitioned for this function to work.
-<br>
-<br>
-  * partition_copy(beg, end, beg1, beg2, condition) :<br>- This function copies the partitioned elements in the differenet containers mentioned in its arguments. It takes 5 arguments. Beginning and ending position of container, beginning position of new container where elements have to be copied (elements returning true for condition), beginning position of new container where other elements have to be copied (elements returning false for condition) and the condition. Resizing new containers is necessary for this function.
+<a name="1a5a"></a> <a name="1a5b"></a>
+1. partition(beg, end, condition) :<br>- This function is used to partition the elements on basis of condition mentioned in its arguments.
+2. is_partitioned(beg, end, condition) :<br>- This function returns boolean true if container is partitioned else returns false.
+
 
 ```CPP
 // C++ code to demonstrate the working of
@@ -722,6 +728,11 @@ Now, vector is partitioned after partition operation
 The partitioned vector is : 2 8 6 5 1 7
 <pre></pre>
 
+<br><br>
+<a name="1a5c"></a><a name="1a5d"></a>
+
+3. stable_partition(beg, end, condition) :<br>- This function is used to partition the elements on basis of condition mentioned in its arguments in such a way that the relative order of the elements is preserved..
+4. partition_point(beg, end, condition) :<br>- This function returns an iterator pointing to the partition point of container i.e. the first element in the partitioned range [beg,end) for which condition is not true. The container should already be partitioned for this function to work.
 
 ```CPP
 // C++ code to demonstrate the working of
@@ -769,7 +780,9 @@ int main()
 <p>Output</p>
 <pre>The partitioned vector is : 2 6 8 1 5 7 
 The vector elements returning true for condition are : 2 6 8</pre>
-
+<br><br>
+<a name="1a5e"></a>
+5. partition_copy(beg, end, beg1, beg2, condition) :<br>- This function copies the partitioned elements in the differenet containers mentioned in its arguments. It takes 5 arguments. Beginning and ending position of container, beginning position of new container where elements have to be copied (elements returning true for condition), beginning position of new container where other elements have to be copied (elements returning false for condition) and the condition. Resizing new containers is necessary for this function.
 
 ```CPP
 // C++ code to demonstrate the working of
@@ -826,15 +839,15 @@ int main()
 The elements that return false for condition are : 1 5 7</pre>
 
 
-<a name="#1b"></a>
+<a name="1b"></a>
 ### Numeric
-<a name="#1b1"></a>
+<a name="1b1"></a>
 * valarray class
 
-<a name="#1b1a"></a>
+<a name="1b1a"></a>
 Public member functions in valarray class :
 1. apply() :- This function applies the manipulation given in its arguments to all the valarray elements at once and returns a new valarray with manipulated values.
-<a name="#1b1b"></a>
+<a name="1b1b"></a>
 2. sum() :- This function returns the summation of all the elements of valarrays at
 ```CPP
 // C++ code to demonstrate the working of
@@ -874,7 +887,7 @@ The sum of old valarray is : 63
 The sum of new valarray is : 88</pre>
 
 
-<a name="#1b1c"></a>
+<a name="1b1c"></a>
 3. min() :- This function returns the smallest element of valarray.
 <a name="#1b1d"></a>
 4. max() :- This function returns the largest element of valarray.
@@ -906,10 +919,10 @@ int main()
 The smallest element of valarray is : 1</pre>
 
 
-<a name="#1b1e"></a>
+<a name="1b1e"></a>
 5. shift() :- This function returns the new valarray after shifting elements by the number mentioned in its argument. If the number is positive, left-shift is applied, if number is negative, right-shift is applied.
 
-<a name="#1b1f"></a>
+<a name="1b1f"></a>
 6. cshift() :- This function returns the new valarray after circularly shifting(rotating) elements by the number mentioned in its argument. If the number is positive, left-circular shift is applied, if number is negative, right-circular shift is applied.
 ```CPP
 // C++ code to demonstrate the working of
@@ -951,7 +964,7 @@ int main()
 <pre>The new valarray after shifting is : 20 1 30 0 0 
 The new valarray after circular shifting is : 20 1 30 10 2</pre>
 
-<a name="#1b1g"></a>
+<a name="1b1g"></a>
 7. swap() :- This function swaps one valarray with other.
 ```CPP
 // C++ code to demonstrate the working of
