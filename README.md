@@ -85,19 +85,29 @@ The Standard Template Library (STL) is a set of C++ template classes to provide 
         1. [map](#2C3)
         1. [multimap](#2C4)
     1. [Unordered Associative Containers](#2d)
-        1. [unordered_set >=C++11](#2d)
-        1. [unordered_multiset >=C++11](#2d)
-        1. [unordered_map >=C++11](#2d)
-        1. [unordered_multimap >=C++11](#2d)
-
+        1. [unordered_set >=C++11](#2d1)
+        1. [unordered_multiset >=C++11](#2d2)
+        1. [unordered_map >=C++11](#2d3)
+        1. [unordered_multimap >=C++11](#2d4)
 1. [Functions](#3)
     1. [Functors](#3a)
-
 1. [Iterators](#4)
     1. [Iterators](#4a)
-
+	    1. [begin()](#4a1)
+		1. [end()](#4a2)
+		1. [advance()](#4a3)
+		1. [next()](#4a4)
+		1. [prev()](#4a5)
+		1. [inserter()](#4a6)
 1. [Utility Library](#5)
     1. [Pair](#5a)
+	    1. [Syntax](#5a1)
+		1. [Initializing a pair](#5a2)
+		1. [Member Functions](#5a3)
+		    1. [make_pair()](#5a3a)
+		    1. [operators(=, ==, !=, >=, <=) &swap()](#5a3b)
+			1. [tie()](#5a3c)
+1. [References](#6)
 
 
 
@@ -2556,3 +2566,1641 @@ int main()
 
 <p><strong>List of functions of Multiset:</strong>&nbsp;</p>
 <ul><li><a href="https://www.geeksforgeeks.org/multiset-begin-and-end-function-in-c-stl/">begin()</a> – Returns an iterator to the first element in the multiset.</li><li><a href="https://www.geeksforgeeks.org/multiset-begin-and-end-function-in-c-stl/">end()</a> – Returns an iterator to the theoretical element that follows last element in the multiset.</li><li><a href="https://www.geeksforgeeks.org/multiset-size-in-c-stl-with-examples/">size()</a> – Returns the number of elements in the multiset.</li><li><a href="https://www.geeksforgeeks.org/multiset-max_size-in-c-stl/">max_size()</a>– Returns the maximum number of elements that the multiset can hold.</li><li><a href="https://www.geeksforgeeks.org/multiset-empty-function-in-c-stl/">empty()</a> – Returns whether the multiset is empty.</li><li><a href="https://www.geeksforgeeks.org/multiset-insert-function-in-c-stl/">pair insert(const g)</a> – Adds a new element ‘g’ to the multiset.</li><li><a href="https://www.geeksforgeeks.org/multiset-insert-function-in-c-stl/">iterator insert (iterator position,const g)</a> – Adds a new element ‘g’ at the position pointed by iterator.</li><li><a href="https://www.geeksforgeeks.org/multiset-erase-in-c-stl/">erase(iterator position)</a>– Removes the element at the position pointed by the iterator.</li><li><a href="https://www.geeksforgeeks.org/multiset-erase-in-c-stl/">erase(const g)</a>– Removes the value ‘g’ from the multiset.</li><li><a href="https://www.geeksforgeeks.org/multiset-clear-function-in-c-stl/">clear()</a>– Removes all the elements from the multiset.</li><li><a href="https://www.geeksforgeeks.org/multiset-key_comp-function-in-c-stl/">key_comp()</a> / <a href="https://www.geeksforgeeks.org/multiset-value_comp-method-in-c-stl/">value_comp()</a>– Returns the object that determines how the elements in the multiset are ordered (‘&lt;‘ by default).</li><li><a href="https://www.geeksforgeeks.org/multiset-find-function-in-c-stl/">find(const g)</a>– Returns an iterator to the element ‘g’ in the multiset if found, else returns the iterator to end.</li><li><a href="https://www.geeksforgeeks.org/multiset-count-function-in-c-stl/">count(const g)</a>– Returns the number of matches to element ‘g’ in the multiset.</li><li><a href="https://www.geeksforgeeks.org/multiset-lower_bound-in-cpp-stl-with-examples/">lower_bound(const g)</a>– Returns an iterator to the first element that is equivalent to ‘g’ or definitely will not go before the element ‘g’ in the multiset if found, else returns the iterator to end.</li><li><a href="https://www.geeksforgeeks.org/multiset-upper_bound-in-cpp-stl-with-examples/">upper_bound(const g)</a>– Returns an iterator to the first element that is equivalent to ‘g’ or definitely will go after the element ‘g’ in the multiset if found, else returns the iterator to end.</li><li><a href="https://www.geeksforgeeks.org/multisetswap-c-stl/">multiset::swap()</a>– This function is used to exchange the contents of two multisets but the sets must be of same type, although sizes may differ.</li><li><a href="https://www.geeksforgeeks.org/multisetoperator-c-stl/">multiset::operator=</a>– This operator is used to assign new contents to the container by replacing the existing contents.</li><li><a href="https://www.geeksforgeeks.org/multisetemplace-c-stl/">multiset::emplace()</a>– This function is used to insert a new element into the multiset container.</li><li><a href="https://www.geeksforgeeks.org/multiset-equal_range-function-in-c-stl/">multiset equal_range()</a>– Returns an iterator of pairs. The pair refers to the range that includes all the elements in the container which have a key equivalent to k.</li><li><a href="https://www.geeksforgeeks.org/multiset-emplace_hint-function-in-c-stl/">multiset::emplace_hint() </a>– Inserts a new element in the multiset.</li><li><a href="https://www.geeksforgeeks.org/multiset-rbegin-and-rend-function-in-c-stl/">multiset::rbegin()</a>– Returns a reverse iterator pointing to the last element in the multiset container.</li><li><a href="https://www.geeksforgeeks.org/multiset-rbegin-and-rend-function-in-c-stl/">multiset::rend()</a>– Returns a reverse iterator pointing to the theoretical element right before the first element in the multiset container.</li><li><a href="https://www.geeksforgeeks.org/multiset-cbegin-and-cend-function-in-c-stl/">multiset::cbegin()</a>– Returns a constant iterator pointing to the first element in the container.</li><li><a href="https://www.geeksforgeeks.org/multiset-cbegin-and-cend-function-in-c-stl/">multiset::cend()</a>– Returns a constant iterator pointing to the position past the last element in the container.</li><li><a href="https://www.geeksforgeeks.org/multiset-crbegin-and-crend-function-in-c-stl/">multiset::crbegin()</a>– Returns a constant reverse iterator pointing to the last element in the container.</li><li><a href="https://www.geeksforgeeks.org/multiset-crbegin-and-crend-function-in-c-stl/">multiset::crend()</a>– Returns a constant reverse iterator pointing to the position just before the first element in the container.</li><li><a href="https://www.geeksforgeeks.org/multiset-get_allocator-function-in-c-stl/">multiset::get_allocator()</a>– Returns a copy of the allocator object associated with the multiset.</li></ul>
+
+
+<a name="2c3"></a>
+
+* map
+<p>Maps are associative containers that store elements in a mapped fashion. Each element has a key value and a mapped value. No two mapped values can have same key values.<br><br>&nbsp;<br>Some basic functions associated with Map:<br><a href="https://www.geeksforgeeks.org/mapbegin-end-c-stl/" rel="noopener" target="_blank">begin()</a> – Returns an iterator to the first element in the map<br><a href="https://www.geeksforgeeks.org/mapbegin-end-c-stl/" rel="noopener" target="_blank">end()</a> – Returns an iterator to the theoretical element that follows last element in the map<br><a href="https://www.geeksforgeeks.org/mapsize-c-stl/" rel="noopener" target="_blank">size()</a> – Returns the number of elements in the map<br><a href="https://www.geeksforgeeks.org/map-max_size-in-c-stl/" rel="noopener" target="_blank">max_size()</a> – Returns the maximum number of elements that the map can hold<br><a href="https://www.geeksforgeeks.org/mapempty-c-stl/" rel="noopener" target="_blank">empty()</a> – Returns whether the map is empty<br><a href="https://www.geeksforgeeks.org/map-insert-in-c-stl/" rel="noopener" target="_blank">pair insert(keyvalue, mapvalue)</a> – Adds a new element to the map<br><a href="https://www.geeksforgeeks.org/map-erase-function-in-c-stl/" rel="noopener" target="_blank">erase(iterator position)</a> – Removes the element at the position pointed by the iterator<br><a href="https://www.geeksforgeeks.org/map-erase-function-in-c-stl/" rel="noopener" target="_blank">erase(const g)</a>– Removes the key value ‘g’ from the map<br><a href="https://www.geeksforgeeks.org/mapclear-c-stl/" rel="noopener" target="_blank">clear()</a> – Removes all the elements from the map</p>
+
+```CPP
+#include <iostream>
+#include <iterator>
+#include <map>
+
+using namespace std;
+
+int main()
+{
+
+	// empty map container
+	map<int, int> gquiz1;
+
+	// insert elements in random order
+	gquiz1.insert(pair<int, int>(1, 40));
+	gquiz1.insert(pair<int, int>(2, 30));
+	gquiz1.insert(pair<int, int>(3, 60));
+	gquiz1.insert(pair<int, int>(4, 20));
+	gquiz1.insert(pair<int, int>(5, 50));
+	gquiz1.insert(pair<int, int>(6, 50));
+	gquiz1.insert(pair<int, int>(7, 10));
+
+	// printing map gquiz1
+	map<int, int>::iterator itr;
+	cout << "\nThe map gquiz1 is : \n";
+	cout << "\tKEY\tELEMENT\n";
+	for (itr = gquiz1.begin(); itr != gquiz1.end(); ++itr) {
+		cout << '\t' << itr->first
+			<< '\t' << itr->second << '\n';
+	}
+	cout << endl;
+
+	// assigning the elements from gquiz1 to gquiz2
+	map<int, int> gquiz2(gquiz1.begin(), gquiz1.end());
+
+	// print all elements of the map gquiz2
+	cout << "\nThe map gquiz2 after"
+		<< " assign from gquiz1 is : \n";
+	cout << "\tKEY\tELEMENT\n";
+	for (itr = gquiz2.begin(); itr != gquiz2.end(); ++itr) {
+		cout << '\t' << itr->first
+			<< '\t' << itr->second << '\n';
+	}
+	cout << endl;
+
+	// remove all elements up to
+	// element with key=3 in gquiz2
+	cout << "\ngquiz2 after removal of"
+			" elements less than key=3 : \n";
+	cout << "\tKEY\tELEMENT\n";
+	gquiz2.erase(gquiz2.begin(), gquiz2.find(3));
+	for (itr = gquiz2.begin(); itr != gquiz2.end(); ++itr) {
+		cout << '\t' << itr->first
+			<< '\t' << itr->second << '\n';
+	}
+
+	// remove all elements with key = 4
+	int num;
+	num = gquiz2.erase(4);
+	cout << "\ngquiz2.erase(4) : ";
+	cout << num << " removed \n";
+	cout << "\tKEY\tELEMENT\n";
+	for (itr = gquiz2.begin(); itr != gquiz2.end(); ++itr) {
+		cout << '\t' << itr->first
+			<< '\t' << itr->second << '\n';
+	}
+
+	cout << endl;
+
+	// lower bound and upper bound for map gquiz1 key = 5
+	cout << "gquiz1.lower_bound(5) : "
+		<< "\tKEY = ";
+	cout << gquiz1.lower_bound(5)->first << '\t';
+	cout << "\tELEMENT = "
+		<< gquiz1.lower_bound(5)->second << endl;
+	cout << "gquiz1.upper_bound(5) : "
+		<< "\tKEY = ";
+	cout << gquiz1.upper_bound(5)->first << '\t';
+	cout << "\tELEMENT = "
+		<< gquiz1.upper_bound(5)->second << endl;
+
+	return 0;
+}
+```
+
+
+<p>Output</p>
+<pre>The map gquiz1 is : 
+    KEY    ELEMENT
+    1    40
+    2    30
+    3    60
+    4    20
+    5    50
+    6    50
+    7    10
+
+
+The map gquiz2 after assign from gquiz1 is : 
+    KEY    ELEMENT
+    1    40
+    2    30
+    3    60
+    4    20
+    5    50
+    6    50
+    7    10
+
+
+gquiz2 after removal of elements less than key=3 : 
+    KEY    ELEMENT
+    3    60
+    4    20
+    5    50
+    6    50
+    7    10
+
+gquiz2.erase(4) : 1 removed 
+    KEY    ELEMENT
+    3    60
+    5    50
+    6    50
+    7    10
+
+gquiz1.lower_bound(5) :     KEY = 5        ELEMENT = 50
+gquiz1.upper_bound(5) :     KEY = 6        ELEMENT = 50</pre>
+<p><strong>List of all functions of Map:</strong></p>
+<ul><li><a href="https://www.geeksforgeeks.org/map-insert-in-c-stl/" rel="noopener" target="_blank">map insert() in C++ STL</a>– Insert elements with a particular key in the map container. .</li><li><a href="https://www.geeksforgeeks.org/map-count-function-in-c-stl/" rel="noopener" target="_blank">map count() function in C++ STL</a>– Returns the number of matches to element with key value ‘g’ in the map.</li><li><a href="https://www.geeksforgeeks.org/map-equal_range-in-c-stl/" rel="noopener" target="_blank">map equal_range() in C++ STL</a>– Returns an iterator of pairs. The pair refers to the bounds of a range that includes all the elements in the container which have a key equivalent to k.</li><li><a href="https://www.geeksforgeeks.org/map-erase-function-in-c-stl/" rel="noopener" target="_blank">map erase() function in C++ STL</a>– Used to erase element from the container.</li><li><a href="https://www.geeksforgeeks.org/map-rend-function-in-c-stl/" rel="noopener" target="_blank">map rend() function in C++ STL</a>– Returns a reverse iterator pointing to the theoretical element right before the first key-value pair in the map(which is considered its reverse end).</li><li><a href="https://www.geeksforgeeks.org/map-rbegin-function-in-c-stl-2/" rel="noopener" target="_blank">map rbegin() function in C++ STL</a>– Returns a reverse iterator which points to the last element of the map.</li><li><a href="https://www.geeksforgeeks.org/map-find-function-in-c-stl/" rel="noopener" target="_blank">map find() function in C++ STL</a>– Returns an iterator to the element with key value ‘g’ in the map if found, else returns the iterator to end.</li><li><a href="https://www.geeksforgeeks.org/map-crbegin-and-crend-function-in-c-stl/" rel="noopener" target="_blank">map crbegin() and crend() function in C++ STL</a>– <strong>crbegin()</strong> returns a constant reverse iterator referring to the last element in the map container. <strong>crend()</strong> returns a constant reverse iterator pointing to the theoretical element before the first element in the map.</li><li><a href="https://www.geeksforgeeks.org/map-cbegin-and-cend-function-in-c-stl/" rel="noopener" target="_blank">map cbegin() and cend() function in C++ STL</a>– <strong>cbegin()</strong> returns a constant iterator referring to the first element in the map container. <strong>cend()</strong> returns a constant iterator pointing to the theoretical element that follows last element in the multimap.</li><li><a href="https://www.geeksforgeeks.org/map-emplace-in-c-stl/" rel="noopener" target="_blank">map emplace() in C++ STL</a>– Inserts the key and its element in the map container.</li><li><a href="https://www.geeksforgeeks.org/map-max_size-in-c-stl/" rel="noopener" target="_blank">map max_size() in C++ STL</a>– Returns the maximum number of elements a map container can hold.</li><li><a href="https://www.geeksforgeeks.org/map-upper_bound-function-in-c-stl/" rel="noopener" target="_blank">map upper_bound() function in C++ STL</a>– Returns an iterator to the first element that is equivalent to mapped value with key value ‘g’ or definitely will go after the element with key value ‘g’ in the map</li><li><a href="https://www.geeksforgeeks.org/map-operator-in-c-stl/" rel="noopener" target="_blank">map operator= in C++ STL</a>– Assigns contents of a container to a different container, replacing its current content.</li><li><a href="https://www.geeksforgeeks.org/map-lower_bound-function-in-c-stl/" rel="noopener" target="_blank">map lower_bound() function in C++ STL</a>– Returns an iterator to the first element that is equivalent to mapped value with key value ‘g’ or definitely will not go before the element with key value ‘g’ in the map.</li><li><a href="https://www.geeksforgeeks.org/map-emplace_hint-function-in-c-stl/" rel="noopener" target="_blank">map emplace_hint() function in C++ STL</a>– Inserts the key and its element in the map container with a given hint.</li><li><a href="https://www.geeksforgeeks.org/map-value_comp-in-c-stl/" rel="noopener" target="_blank">map value_comp() in C++ STL</a>– Returns the object that determines how the elements in the map are ordered (‘&lt;' by default).</li><li><a href="https://www.geeksforgeeks.org/map-key_comp-function-in-c-stl/" rel="noopener" target="_blank">map key_comp() function in C++ STL</a>– Returns the object that determines how the elements in the map are ordered (‘&lt;' by default).</li><li><a href="https://www.geeksforgeeks.org/mapsize-c-stl/" rel="noopener" target="_blank">map::size() in C++ STL</a>– Returns the number of elements in the map.</li><li><a href="https://www.geeksforgeeks.org/mapempty-c-stl/" rel="noopener" target="_blank">map::empty() in C++ STL</a>– Returns whether the map is empty.</li><li><a href="https://www.geeksforgeeks.org/mapbegin-end-c-stl/" rel="noopener" target="_blank">map::begin() and end() in C++ STL</a>– <strong>begin()</strong> returns an iterator to the first element in the map. <strong>end()</strong> returns an iterator to the theoretical element that follows last element in the map</li><li><a href="https://www.geeksforgeeks.org/map-operator-cpp-stl/" rel="noopener" target="_blank">map::operator[] in C++ STL</a>– This operator is used to reference the element present at position given inside the operator.</li><li><a href="https://www.geeksforgeeks.org/mapclear-c-stl/" rel="noopener" target="_blank">map::clear() in C++ STL</a>– Removes all the elements from the map.</li><li><a href="https://www.geeksforgeeks.org/mapat-mapswap-c-stl/" rel="noopener" target="_blank">map::at() and map::swap() in C++ STL</a>– <strong>at()</strong> function is used to return the reference to the element associated with the key k. <strong>swap()</strong> function is used to exchange the contents of two maps but the maps must be of same type, although sizes may differ.</li></ul>
+
+
+<br><br>
+<a name="2c4"></a>
+
+* multimap
+
+<p>Multimap is similar to <a href="http://www.geeksforgeeks.org/map-associative-containers-the-c-standard-template-library-stl/">map</a> with an addition that multiple elements can have same keys. Also, it is NOT required that the key value and mapped value pair has to be unique in this case. One important thing to note about multimap is that multimap keeps all the keys in sorted order always. These properties of multimap makes it very much useful in competitive programming.<br><strong>Some Basic Functions associated with multimap:</strong>&nbsp;</p>
+
+<ul><li><a href="https://www.geeksforgeeks.org/multimapbegin-and-multimapend-in-c-stl/"><strong>begin()</strong></a> – Returns an iterator to the first element in the multimap</li><li><a href="https://www.geeksforgeeks.org/multimapbegin-and-multimapend-in-c-stl/"><strong>end()</strong></a> – Returns an iterator to the theoretical element that follows last element in the multimap</li><li><a href="https://www.geeksforgeeks.org/multimap-size-function-in-c-stl/"><strong>size()</strong></a> – Returns the number of elements in the multimap</li><li><a href="https://www.geeksforgeeks.org/multimap-maxsize-in-c-stl/"><strong>max_size()</strong></a> – Returns the maximum number of elements that the multimap can hold</li><li><a href="https://www.geeksforgeeks.org/multimap-empty-function-in-c-stl/"><strong>empty()</strong></a> – Returns whether the multimap is empty</li><li><a href="https://www.geeksforgeeks.org/multimap-insert-in-c-stl/"><strong>pair&lt;int,int&gt; insert(keyvalue,multimapvalue</strong>)</a> – Adds a new element to the multimap</li></ul>
+
+```CPP
+#include <iostream>
+#include <map>
+#include <iterator>
+
+using namespace std;
+
+int main()
+{
+	multimap <int, int> gquiz1; // empty multimap container
+
+	// insert elements in random order
+	gquiz1.insert(pair <int, int> (1, 40));
+	gquiz1.insert(pair <int, int> (2, 30));
+	gquiz1.insert(pair <int, int> (3, 60));
+	gquiz1.insert(pair <int, int> (6, 50));
+	gquiz1.insert(pair <int, int> (6, 10));
+
+	// printing multimap gquiz1
+	multimap <int, int> :: iterator itr;
+	cout << "\nThe multimap gquiz1 is : \n";
+	cout << "\tKEY\tELEMENT\n";
+	for (itr = gquiz1.begin(); itr != gquiz1.end(); ++itr)
+	{
+		cout << '\t' << itr->first
+			<< '\t' << itr->second << '\n';
+	}
+	cout << endl;
+
+	//adding elements randomly,
+	// to check the sorted keys property
+	gquiz1.insert(pair <int, int> (4, 50));
+	gquiz1.insert(pair <int, int> (5, 10));
+	
+	// printing multimap gquiz1 again
+	
+	cout << "\nThe multimap gquiz1 after adding extra elements is : \n";
+	cout << "\tKEY\tELEMENT\n";
+	for (itr = gquiz1.begin(); itr != gquiz1.end(); ++itr)
+	{
+		cout << '\t' << itr->first
+			<< '\t' << itr->second << '\n';
+	}
+	cout << endl;
+
+
+
+	// assigning the elements from gquiz1 to gquiz2
+	multimap <int, int> gquiz2(gquiz1.begin(),
+								gquiz1.end());
+
+	// print all elements of the multimap gquiz2
+	cout << "\nThe multimap gquiz2 after assign from gquiz1 is : \n";
+	cout << "\tKEY\tELEMENT\n";
+	for (itr = gquiz2.begin(); itr != gquiz2.end(); ++itr)
+	{
+		cout << '\t' << itr->first
+			<< '\t' << itr->second << '\n';
+	}
+	cout << endl;
+
+	// remove all elements up to
+	// key with value 3 in gquiz2
+	cout << "\ngquiz2 after removal of elements less than key=3 : \n";
+	cout << "\tKEY\tELEMENT\n";
+	gquiz2.erase(gquiz2.begin(), gquiz2.find(3));
+	for (itr = gquiz2.begin(); itr != gquiz2.end(); ++itr)
+	{
+		cout << '\t' << itr->first
+			<< '\t' << itr->second << '\n';
+	}
+
+	// remove all elements with key = 4
+	int num;
+	num = gquiz2.erase(4);
+	cout << "\ngquiz2.erase(4) : ";
+	cout << num << " removed \n" ;
+	cout << "\tKEY\tELEMENT\n";
+	for (itr = gquiz2.begin(); itr != gquiz2.end(); ++itr)
+	{
+		cout << '\t' << itr->first
+			<< '\t' << itr->second << '\n';
+	}
+
+	cout << endl;
+
+	//lower bound and upper bound for multimap gquiz1 key = 5
+	cout << "gquiz1.lower_bound(5) : " << "\tKEY = ";
+	cout << gquiz1.lower_bound(5)->first << '\t';
+	cout << "\tELEMENT = " << gquiz1.lower_bound(5)->second << endl;
+	cout << "gquiz1.upper_bound(5) : " << "\tKEY = ";
+	cout << gquiz1.upper_bound(5)->first << '\t';
+	cout << "\tELEMENT = " << gquiz1.upper_bound(5)->second << endl;
+
+	return 0;
+}
+```
+
+<p>Output</p>
+<pre>The multimap gquiz1 is : 
+    KEY    ELEMENT
+    1    40
+    2    30
+    3    60
+    6    50
+    6    10
+
+
+The multimap gquiz1 after adding extra elements is : 
+    KEY    ELEMENT
+    1    40
+    2    30
+    3    60
+    4    50
+    5    10
+    6    50
+    6    10
+
+
+The multimap gquiz2 after assign from gquiz1 is : 
+    KEY    ELEMENT
+    1    40
+    2    30
+    3    60
+    4    50
+    5    10
+    6    50
+    6    10
+
+
+gquiz2 after removal of elements less than key=3 : 
+    KEY    ELEMENT
+    3    60
+    4    50
+    5    10
+    6    50
+    6    10
+
+gquiz2.erase(4) : 1 removed 
+    KEY    ELEMENT
+    3    60
+    5    10
+    6    50
+    6    10
+
+gquiz1.lower_bound(5) :     KEY = 5        ELEMENT = 10
+gquiz1.upper_bound(5) :     KEY = 6        ELEMENT = 50</pre>
+
+<p><strong>List of Functions of Multimap:</strong></p>
+<ul><li><a href="https://www.geeksforgeeks.org/multimapoperator-c-stl/">multimap::operator= in C++ STL</a>– It is used to assign new contents to the container by replacing the existing contents.</li><li><a href="https://www.geeksforgeeks.org/multimapcrbegin-and-multimapcrend-in-c-stl/">multimap::crbegin() and multimap::crend() in C++ STL</a>– <strong>crbegin()</strong> returns a constant reverse iterator referring to the last element in the multimap container. <strong>crend()</strong> returns a constant reverse iterator pointing to the theoretical element before the first element in the multimap.</li><li><a href="https://www.geeksforgeeks.org/multimapemplace_hint-in-c-stl/">multimap::emplace_hint() in C++ STL</a>– Inserts the key and its element in the multimap container with a given hint.</li><li><a href="https://www.geeksforgeeks.org/multimap-clear-function-in-c-stl/">multimap clear() function in C++ STL</a>– Removes all the elements from the multimap.</li><li><a href="https://www.geeksforgeeks.org/multimap-empty-function-in-c-stl/">multimap empty() function in C++ STL</a>– Returns whether the multimap is empty.</li><li><a href="https://www.geeksforgeeks.org/multimap-maxsize-in-c-stl/">multimap maxsize() in C++ STL</a>– Returns the maximum number of elements a multimap container can hold.</li><li><a href="https://www.geeksforgeeks.org/multimap-value_comp-function-in-c-stl/">multimap value_comp() function in C++ STL</a>– Returns the object that determines how the elements in the multimap are ordered (‘&lt;‘ by default)</li><li><a href="https://www.geeksforgeeks.org/multimap-rend-in-c-stl/">multimap rend in C++ STL</a>– Returns a reverse iterator pointing to the theoretical element preceding to the first element of the multimap container.</li><li><a href="https://www.geeksforgeeks.org/multimapcbegin-and-multimapcend-in-c-stl/">multimap::cbegin() and multimap::cend() in C++ STL</a>– <strong>cbegin()</strong> returns a constant iterator referring to the first element in the multimap container. <strong>cend()</strong> returns a constant iterator pointing to the theoretical element that follows last element in the multimap.</li><li><a href="https://www.geeksforgeeks.org/multimapswap-c-stl/">multimap::swap() in C++ STL</a>– Swap the contents of one multimap with another multimap of same type and size.</li><li><a href="https://www.geeksforgeeks.org/multimap-rbegin-in-c-stl/">multimap rbegin in C++ STL</a>– Returns an iterator pointing to the last element of the container.</li><li><a href="https://www.geeksforgeeks.org/multimap-size-function-in-c-stl/">multimap size() function in C++ STL</a>– Returns the number of elements in the multimap container.</li><li><a href="https://www.geeksforgeeks.org/multimapemplace-in-c-stl/">multimap::emplace() in C++ STL</a>– Inserts the key and its element in the multimap container.</li><li><a href="https://www.geeksforgeeks.org/multimapbegin-and-multimapend-in-c-stl/">multimap::begin() and multimap::end() in C++ STL</a>–<strong> begin()</strong> returns an iterator referring to the first element in the multimap container. <strong>end()</strong> returns an iterator to the theoretical element that follows last element in the multimap.</li><li><a href="https://www.geeksforgeeks.org/multimap-upper_bound-function-in-c-stl/">multimap upper_bound() function in C++ STL</a>– Returns an iterator to the first element that is equivalent to multimapped value with key value ‘g’ or definitely will go after the element with key value ‘g’ in the multimap.</li><li><a href="https://www.geeksforgeeks.org/multimapcount-in-c-stl/">multimap::count() in C++ STL</a>– Returns the number of matches to element with key value ‘g’ in the multimap.</li><li><a href="https://www.geeksforgeeks.org/multimaperase-in-c-stl/">multimap::erase() in C++ STL</a>– Removes the key value from the multimap.</li><li><a href="https://www.geeksforgeeks.org/multimapfind-in-c-stl/">multimap::find() in C++ STL</a>– Returns an iterator to the element with key value ‘g’ in the multimap if found, else returns the iterator to end.</li><li><a href="https://www.geeksforgeeks.org/multimap-equal_range-in-c-stl/">multimap equal_range() in C++ STL</a>– Returns an iterator of pairs. The pair refers to the bounds of a range that includes all the elements in the container which have a key equivalent to k.</li><li><a href="https://www.geeksforgeeks.org/multimap-insert-in-c-stl/">multimap insert() in C++ STL</a>– Used to insert elements in the multimap container.</li><li><a href="https://www.geeksforgeeks.org/multimap-lower_bound-function-in-c-stl/">multimap lower_bound() function in C++ STL</a>– Returns an iterator to the first element that is equivalent to multimapped value with key value ‘g’ or definitely will not go before the element with key value ‘g’ in the multimap.</li><li><a href="https://www.geeksforgeeks.org/multimap-key_comp-in-c-stl/">multimap key_comp() in C++ STL</a>– Returns the object that determines how the elements in the multimap are ordered (‘&lt;‘ by default).</li></ul>
+
+
+<br><br>
+<a name="2d"></a>
+
+### Unordered Associative Containers : implement unordered data structures that can be quickly searched
+
+<a name="2d1"></a>
+
+* unordered_set
+
+Set is an ordered sequence of unique keys whereas unordered_set is a set in which key can be stored in any order, so unordered. Set is implemented as a balanced tree structure that is why it is possible to maintain order between the elements (by specific tree traversal). The time complexity of set operations is O(log n) while for unordered_set, it is O(1). 
+
+```CPP
+// C++ program to demonstrate various function of unordered_set
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+	// declaring set for storing string data-type
+	unordered_set <string> stringSet ;
+
+	// inserting various string, same string will be stored
+	// once in set
+
+	stringSet.insert("code") ;
+	stringSet.insert("in") ;
+	stringSet.insert("c++") ;
+	stringSet.insert("is") ;
+	stringSet.insert("fast") ;
+
+	string key = "slow" ;
+
+	// find returns end iterator if key is not found,
+	// else it returns iterator to that key
+
+	if (stringSet.find(key) == stringSet.end())
+		cout << key << " not found" << endl << endl ;
+	else
+		cout << "Found " << key << endl << endl ;
+
+	key = "c++";
+	if (stringSet.find(key) == stringSet.end())
+		cout << key << " not found\n" ;
+	else
+		cout << "Found " << key << endl ;
+
+	// now iterating over whole set and printing its
+	// content
+	cout << "\nAll elements : ";
+	unordered_set<string> :: iterator itr;
+	for (itr = stringSet.begin(); itr != stringSet.end(); itr++)
+		cout << (*itr) << endl;
+}
+```
+<p>Output</p>
+<pre>slow not found
+
+Found c++
+
+All elements : 
+is
+fast
+c++
+in
+code</pre>
+
+A practical problem based on unordered_set – Given an array(list) of integers, find all the duplicates among them. 
+```CPP
+// C++ program to find duplicate from an array using
+// unordered_set
+#include <bits/stdc++.h>
+using namespace std;
+
+// Print duplicates in arr[0..n-1] using unordered_set
+void printDuplicates(int arr[], int n)
+{
+	// declaring unordered sets for checking and storing
+	// duplicates
+	unordered_set<int> intSet;
+	unordered_set<int> duplicate;
+
+	// looping through array elements
+	for (int i = 0; i < n; i++)
+	{
+		// if element is not there then insert that
+		if (intSet.find(arr[i]) == intSet.end())
+			intSet.insert(arr[i]);
+
+		// if element is already there then insert into
+		// duplicate set
+		else
+			duplicate.insert(arr[i]);
+	}
+
+	// printing the result
+	cout << "Duplicate item are : ";
+	unordered_set<int> :: iterator itr;
+
+	// iterator itr loops from begin() till end()
+	for (itr = duplicate.begin(); itr != duplicate.end(); itr++)
+		cout << *itr << " ";
+}
+
+// Driver code
+int main()
+{
+	int arr[] = {1, 5, 2, 1, 4, 3, 1, 7, 2, 8, 9, 5};
+	int n = sizeof(arr) / sizeof(int);
+
+	printDuplicates(arr, n);
+	return 0;
+}
+```
+<p>Output</p>
+<pre>Duplicate item are : 5 1 2 </pre>
+
+<p><strong>Methods of unordered_set:</strong></p>
+<ul><li><a href="https://www.geeksforgeeks.org/unordered_set-insert-function-in-c-stl/">insert()</a>– Insert a new {element} in the unordered_set container.</li><li><a href="https://www.geeksforgeeks.org/unordered_set-begin-function-in-c-stl/">begin()</a>– Return an iterator pointing to the first element in the unordered_set container.</li><li><a href="https://www.geeksforgeeks.org/unordered_set-end-in-c-stl/">end()</a>– Returns an iterator pointing to the past-the-end-element.</li><li><a href="https://www.geeksforgeeks.org/unordered_set-count-function-in-c-stl/">count()</a>– Count occurrences of a particular element in an unordered_set container.</li><li><a href="https://www.geeksforgeeks.org/unordered_set-find-function-in-c-stl/">find()</a>– Search for an element in the container.</li><li><a href="https://www.geeksforgeeks.org/unoredered_set-clear-function-in-c-stl/">clear()</a>– Removes all of the elements from an unordered_set and empties it.</li><li><a href="https://www.geeksforgeeks.org/unordered_set-cbegin-function-in-c-stl/">cbegin()</a>– Return a const_iterator pointing to the first element in the unordered_set container.</li><li><a href="https://www.geeksforgeeks.org/unordered_set-cend-function-in-c-stl/">cend()</a>– Return a const_iterator pointing to past-the-end element in the unordered_set container or in one of it’s bucket.</li><li><a href="https://www.geeksforgeeks.org/unordered_set-bucket_size-in-c-stl/">bucket_size()</a>– Returns the total number of elements present in a specific bucket in an unordered_set container.</li><li><a href="https://www.geeksforgeeks.org/unordered_set-erase-function-in-c-stl/">erase()</a>– Remove either a single element or a range of elements ranging from start(inclusive) to end(exclusive).</li><li><a href="https://www.geeksforgeeks.org/unordered_set-size-function-in-c-stl/">size()</a>– Return the number of elements in the unordered_set container.</li><li><a href="https://www.geeksforgeeks.org/unordered_set-swap-function-in-c-stl/">swap()</a>– Exchange values of two unordered_set containers.</li><li><a href="https://www.geeksforgeeks.org/unordered_set-emplace-function-in-c-stl/">emplace()</a>– Insert an element in an unordered_set container.</li><li><a href="https://www.geeksforgeeks.org/unordered_set-max_size-in-c-stl/">max_size()</a>– Returns maximum number of elements that an unordered_set container can hold.</li><li><a href="https://www.geeksforgeeks.org/unordered_set-empty-function-in-c-stl/">empty()</a>– Check if an unordered_set container is empty or not.</li><li><a href="https://www.geeksforgeeks.org/unordered_set-equal_range-in-c-stl/">equal_range</a>– Returns range that includes all elements equal to given value.</li><li><a href="https://www.geeksforgeeks.org/unordered_set-operator-in-c-stl/">operator= </a>– Copies (or moves) an unordered_set to another unordered_set and unordered_set::operator= is the corresponding operator function.</li><li><a href="https://www.geeksforgeeks.org/unordered_set-hash_function-in-c-stl/">hash_function() </a>– This hash function is a unary function which takes asingle argument only and returns a unique value of type size_t based on it.</li><li><a href="https://www.geeksforgeeks.org/unordered_set-reserve-function-in-c-stl/">reserve()</a>– Used to request capacity change of unordered_set.</li><li><a href="https://www.geeksforgeeks.org/unordered_set-bucket-function-in-c-stl/">bucket()</a>– Returns the bucket number of a specific element.</li><li><a href="https://www.geeksforgeeks.org/unordered_set-bucket_count-function-in-c-stl/">bucket_count() </a>– Returns the total number of buckets present in an unordered_set container.</li><li><a href="https://www.geeksforgeeks.org/unordered_set-load_factor-function-in-c-stl/">load_factor()</a>– Returns the current load factor in the unordered_set container.</li><li><a href="https://www.geeksforgeeks.org/unordered_set-rehash-function-in-c-stl/">rehash()</a>– Set the number of buckets in the container of unordered_set to given size or more.</li><li><a href="https://www.geeksforgeeks.org/unordered_set-max_load_factor-in-c-stl/">max_load_factor()</a>– Returns(Or sets) the current maximum load factor of the unordered set container.</li><li><a href="https://www.geeksforgeeks.org/unordered_set-emplace_hint-function-in-c-stl/">emplace_hint()</a>– Inserts a new element in the unordered_set only if the value to be inserted is unique, with a given hint.</li><li><a href="https://www.geeksforgeeks.org/unordered_set-operator-in-c-stl-3/">== operator </a>– The ‘==’ is an operator in C++ STL performs equality comparison operation between two unordered sets and unordered_set::operator== is the corresponding operator function for the same.</li><li><a href="https://www.geeksforgeeks.org/unordered_set-key_eq-function-in-c-stl/">key_eq()</a>– Returns a boolean value according to the comparison. It returns the key equivalence comparison predicate used by the unordered_set.</li><li><a href="https://www.geeksforgeeks.org/unordered_set-operator-in-c-stl-2/">operator!=</a>– The != is a relational operator in C++ STL which compares the equality and inequality between unordered_set containers.</li><li><a href="https://www.geeksforgeeks.org/unordered_set-max_bucket_count-function-in-c-stl/">max_bucket_count() </a>– Find the maximum number of buckets that unordered_set can have.</li></ul>
+<br><br>
+
+<a name="2d2"></a>
+
+* unordered_multiset 
+```CPP
+// C++ program to demonstrate various function
+// of unordered_multiset
+#include <bits/stdc++.h>
+using namespace std;
+
+// making typedef for short declaration
+typedef unordered_multiset<int>::iterator umit;
+
+// Utility function to print unordered_multiset
+void printUset(unordered_multiset<int> ums)
+{
+	// begin() returns iterator to first element of set
+	umit it = ums.begin();
+	for (; it != ums.end(); it++)
+		cout << *it << " ";
+	cout << endl;
+}
+
+// Driver program to check all function
+int main()
+{
+	// empty initialization
+	unordered_multiset<int> ums1;
+
+	// Initialization by intializer list
+	unordered_multiset<int> ums2 ({1, 3, 1, 7, 2, 3,
+								4, 1, 6});
+
+	// Initialization by assignment
+	ums1 = {2, 7, 2, 5, 0, 3, 7, 5};
+
+	// empty() function return true if set is empty
+	// otherwise false
+	if (ums1.empty())
+		cout << "unordered multiset 1 is empty\n";
+	else
+		cout << "unordered multiset 1 is not empty\n";
+
+	// size() function returns total number of elements
+	// in data structure
+	cout << "The size of unordered multiset 2 is : "
+		<< ums2.size() << endl;
+
+	printUset(ums1);
+
+	ums1.insert(7);
+
+	printUset(ums1);
+
+	int val = 3;
+
+	// find function returns iterator to first position
+	// of val, if exist otherwise it returns iterator
+	// to end
+	if (ums1.find(val) != ums1.end())
+		cout << "unordered multiset 1 contains "
+			<< val << endl;
+	else
+		cout << "unordered multiset 1 does not contains "
+			<< val << endl;
+
+	// count function returns total number of occurrence in set
+	val = 5;
+	int cnt = ums1.count(val);
+	cout << val << " appears " << cnt
+		<< " times in unordered multiset 1 \n";
+
+	val = 9;
+
+	// if count return >0 value then element exist otherwise not
+	if (ums1.count(val))
+		cout << "unordered multiset 1 contains "
+			<< val << endl;
+	else
+		cout << "unordered multiset 1 does not contains "
+			<< val << endl;
+
+	val = 1;
+
+	// equal_range returns a pair, where first is iterator
+	// to first position of val and second it iterator to
+	// last position to val
+	pair<umit, umit> erange_it = ums2.equal_range(val);
+	if (erange_it.first != erange_it.second)
+		cout << val << " appeared atleast once in "
+						"unoredered_multiset \n";
+
+
+	printUset(ums2);
+
+	// erase function deletes all instances of val
+	ums2.erase(val);
+
+	printUset(ums2);
+
+	// clear function deletes all entries from set
+	ums1.clear();
+	ums2.clear();
+
+	if (ums1.empty())
+		cout << "unordered multiset 1 is empty\n";
+	else
+		cout << "unordered multiset 1 is not empty\n";
+}
+```
+
+<p>Output</p>
+<pre>unordered multiset 1 is not empty
+The size of unordered multiset 2 is : 9
+3 0 5 5 7 7 2 2 
+3 0 5 5 7 7 7 2 2 
+unordered multiset 1 contains 3
+5 appears 2 times in unordered multiset 1 
+unordered multiset 1 does not contains 9
+1 appeared atleast once in unoredered_multiset 
+6 4 2 7 3 3 1 1 1 
+6 4 2 7 3 3 
+unordered multiset 1 is empty</pre>
+
+
+```CPP
+// C++ program to delete one copy from unordered set
+#include <bits/stdc++.h>
+using namespace std;
+
+// making typedef for short declaration
+typedef unordered_multiset<int>::iterator umit;
+
+// Utility function to print unordered_multiset
+void printUset(unordered_multiset<int> ums)
+{
+	// begin() returns iterator to first element of
+	// set
+	umit it = ums.begin();
+	for (; it != ums.end(); it++)
+		cout << *it << " ";
+	cout << endl;
+}
+
+// function to delete one copy of val from set
+void erase_one_entry(unordered_multiset<int>& ums,
+					int val)
+{
+	// find returns iterator to first position
+	umit it = ums.find(val);
+
+	// if element is there then erasing that
+	if (it != ums.end())
+	ums.erase(it);
+}
+
+// Driver program to check above function
+int main()
+{
+	// initializing multiset by initializer list
+	unordered_multiset<int> ums ({1, 3, 1, 7, 2, 3,
+								4, 1, 6});
+
+	int val = 1;
+	printUset(ums);
+	erase_one_entry(ums, val);
+	printUset(ums);
+}
+```
+
+<p>Output</p>
+<pre>6 4 2 7 3 3 1 1 1 
+6 4 2 7 3 3 1 1 </pre>
+
+<p><strong>Methods of unordered_multiset:</strong></p>
+<ul><li><a href="https://www.geeksforgeeks.org/unordered_multiset-insert-in-c-stl/" rel="noopener" target="_blank">insert()</a>– Inserts new elements in the unordered_multiset. Thus increases the container size.</li><li><a href="https://www.geeksforgeeks.org/unordered_multiset-begin-function-in-c-stl/" rel="noopener" target="_blank">begin()</a>– Returns an iterator pointing to the first element in the container or to the first element in one of its bucket.</li><li><a href="https://www.geeksforgeeks.org/unordered_multiset-end-function-in-c-stl/" rel="noopener" target="_blank">end()</a>– Returns an iterator pointing to the position immediately after the last element in the container or to the position immediately after the last element in one of its bucket.</li><li><a href="https://www.geeksforgeeks.org/unordered_multiset-empty-function-in-cstl/" rel="noopener" target="_blank">empty()</a>– It returns true if the unordered_multiset container is empty. Otherwise, it returns false.</li><li><a href="https://www.geeksforgeeks.org/unordered_multiset-find-function-in-cstl/" rel="noopener" target="_blank">find()</a>– Returns an iterator which points to the position which has the element val.</li><li><a href="https://www.geeksforgeeks.org/unordered_multiset-cbegin-function-in-c-stl/" rel="noopener" target="_blank">cbegin()</a>– Returns a constant iterator pointing to the first element in the container or to the first element in one of its bucket.</li><li><a href="https://www.geeksforgeeks.org/unordered_multiset-cend-function-in-c-stl/" rel="noopener" target="_blank">cend()</a>– Returns a constant iterator pointing to the position immediately after the last element in the container or to the position immediately after the last element in one of its bucket.</li><li><a href="https://www.geeksforgeeks.org/unordered_multiset-equal_range-function-in-cstl/" rel="noopener" target="_blank">equal_range()</a>– Returns the range in which all the elements are equal to a given value.</li><li><a href="https://www.geeksforgeeks.org/unordered_multiset-emplace-function-in-c-stl/" rel="noopener" target="_blank">emplace()</a>– Inserts a new element in the unordered_multiset container.</li><li><a href="https://www.geeksforgeeks.org/unordered_multiset-clear-function-in-c-stl/" rel="noopener" target="_blank">clear()</a>– Clears the contents of the unordered_multiset container.</li><li><a href="https://www.geeksforgeeks.org/unordered_multiset-count-function-in-c-stl/" rel="noopener" target="_blank">count()</a>– Returns the count of elements in the unordered_multiset container which is equal to a given value.</li><li><a href="https://www.geeksforgeeks.org/unordered_multiset-size-in-c-stl/" rel="noopener" target="_blank">size()</a>– The size() method of unordered_multiset is used to count the number of elements of unordered_set it is called with.</li><li><a href="https://www.geeksforgeeks.org/unordered_multiset-max_size-in-c-stl/" rel="noopener" target="_blank">max_size</a>– The max_size() of unordered_multiset takes the maximum number of elements that the unordered_multiset container is able to hold.</li><li><a href="https://www.geeksforgeeks.org/unordered_multiset-swap-function-in-c-stl/" rel="noopener" target="_blank">swap()</a>– Swaps the contents of two unordered_multiset containers.</li><li><a href="https://www.geeksforgeeks.org/unordered_multiset-erase-function-in-c-stl/" rel="noopener" target="_blank">erase() </a>– Used to remove either a single element or, all elements with a definite value or, a range of elements ranging from start(inclusive) to end(exclusive).</li><li><a href="https://www.geeksforgeeks.org/unordered_multiset-bucket-function-in-c-stl/" rel="noopener" target="_blank">bucket()</a>– Returns the bucket number in which a given element is. Bucket size varies from 0 to bucket_count-1.</li><li><a href="https://www.geeksforgeeks.org/unordered_multiset-bucket_size-function-in-c-stl/" rel="noopener" target="_blank">bucket_size()</a>– Returns the number of elements in the bucket which has the element val.</li><li><a href="https://www.geeksforgeeks.org/unordered_multiset-reserve-in-c-stl/" rel="noopener" target="_blank">reserve()</a>– The reverse() function of unordered_multiset sets the number of buckets in the container (bucket_count) to the most appropriate to contain at least n elements.</li><li><a href="https://www.geeksforgeeks.org/unordered_multiset-max_bucket_count-function-in-c-stl/" rel="noopener" target="_blank">max_bucket_count()</a>– Returns the maximum number of buckets that the unordered multiset container can have.</li><li><a href="https://www.geeksforgeeks.org/unordered_multiset-load_factor-function-in-c-stl/" rel="noopener" target="_blank">load_factor()</a>– Returns the current load factor in the unordered_multiset container.</li><li><a href="https://www.geeksforgeeks.org/unordered_multiset-max_load_factor-in-c-stl/" rel="noopener" target="_blank">max_load_factor()</a>– Returns the maximum load factor of the unordered_multiset container.</li><li><a href="https://www.geeksforgeeks.org/unordered_multiset-bucket_count-function-in-c-stl/" rel="noopener" target="_blank">bucket_count()</a>– Returns the total number of buckets in the unordered_multiset container.</li><li><a href="https://www.geeksforgeeks.org/unordered_multiset-hash_function-function-in-c-stl/" rel="noopener" target="_blank">hash_function()</a>– This hash function is a unary function which takes a single argument only and returns a unique value of type size_t based on it.</li><li><a href="https://www.geeksforgeeks.org/unordered_multiset-rehash-function-in-c-stl/" rel="noopener" target="_blank">rehash()</a>– Sets the number of buckets in the container to N or more.</li><li><a href="https://www.geeksforgeeks.org/unordered_multiset-key_eq-function-in-c-stl/" rel="noopener" target="_blank">key_eq()</a>– Returns a boolean value according to the comparison.</li><li><a href="https://www.geeksforgeeks.org/unordered_multiset-emplace_hint-function-in-c-stl/" rel="noopener" target="_blank">emplace_hint()</a>– Inserts a new element in the unordered_multiset container.</li><li><a href="https://www.geeksforgeeks.org/unordered_multiset-get_allocator-in-c-stl/" rel="noopener" target="_blank">get_allocator</a>– This function gets the stored allocator object and returns the allocator object which is used to construct the container.</li><li><a href="https://www.geeksforgeeks.org/unordered_multiset-operator-in-c-stl/" rel="noopener" target="_blank">operator =</a>– The ‘=’ is an operator in C++ STL which copies (or moves) an unordered_multiset to another unordered_multiset and unordered_multiset::operator= is the corresponding operator function.</li></ul>
+<br><br>
+
+<a name="2d3"></a>
+* unordered_map
+
+```CPP
+// C++ program to demonstrate functionality of unordered_map
+#include <iostream>
+#include <unordered_map>
+using namespace std;
+
+int main()
+{
+	// Declaring umap to be of <string, int> type
+	// key will be of string type and mapped value will
+	// be of int type
+	unordered_map<string, int> umap;
+
+	// inserting values by using [] operator
+	umap["Qannaf"] = 10;
+	umap["AL-SAHMI"] = 20;
+	umap["Yes"] = 30;
+
+	// Traversing an unordered map
+	for (auto x : umap)
+	cout << x.first << " " << x.second << endl;
+
+}
+```
+<p>Output</p>
+<pre>Yes 30
+Qannaf 10
+AL-SAHMI 20</pre>
+
+unordered_map vs unordered_set : 
+In unordered_set, we have only key, no value, these are mainly used to see presence/absence in a set. For example, consider the problem of counting the frequencies of individual words. We can’t use unordered_set (or set) as we can’t store counts. 
+
+unordered_map vs map : 
+map (like set) is an ordered sequence of unique keys whereas in unordered_map key can be stored in any order, so unordered. 
+The map is implemented as a balanced tree structure that is why it is possible to maintain order between the elements (by specific tree traversal). The time complexity of map operations is O(log n) while for unordered_map, it is O(1) on average. 
+
+```CPP
+// C++ program to demonstrate functionality of unordered_map
+#include <iostream>
+#include <unordered_map>
+using namespace std;
+
+int main()
+{
+	// Declaring umap to be of <string, double> type
+	// key will be of string type and mapped value will
+	// be of double type
+	unordered_map<string, double> umap;
+
+	// inserting values by using [] operator
+	umap["PI"] = 3.14;
+	umap["root2"] = 1.414;
+	umap["root3"] = 1.732;
+	umap["log10"] = 2.302;
+	umap["loge"] = 1.0;
+
+	// inserting value by insert function
+	umap.insert(make_pair("e", 2.718));
+
+	string key = "PI";
+
+	// If key not found in map iterator to end is returned
+	if (umap.find(key) == umap.end())
+		cout << key << " not found\n\n";
+
+	// If key found then iterator to that key is returned
+	else
+		cout << "Found " << key << "\n\n";
+
+	key = "lambda";
+	if (umap.find(key) == umap.end())
+		cout << key << " not found\n";
+	else
+		cout << "Found " << key << endl;
+
+	// iterating over all value of umap
+	unordered_map<string, double>:: iterator itr;
+	cout << "\nAll Elements : \n";
+	for (itr = umap.begin(); itr != umap.end(); itr++)
+	{
+		// itr works as a pointer to pair<string, double>
+		// type itr->first stores the key part and
+		// itr->second stores the value part
+		cout << itr->first << " " << itr->second << endl;
+	}
+}
+```
+<p>Output</p>
+<pre>Found PI
+
+lambda not found
+
+All Elements : 
+loge  1
+e  2.718
+log10  2.302
+root3  1.732
+PI  3.14
+root2  1.414</pre>
+
+A practical problem based on unordered_map – given a string of words, find frequencies of individual words.
+
+```CPP
+// C++ program to find freq of every word using
+// unordered_map
+#include <bits/stdc++.h>
+using namespace std;
+
+// Prints frequencies of individual words in str
+void printFrequencies(const string &str)
+{
+	// declaring map of <string, int> type, each word
+	// is mapped to its frequency
+	unordered_map<string, int> wordFreq;
+
+	// breaking input into word using string stream
+	stringstream ss(str); // Used for breaking words
+	string word; // To store individual words
+	while (ss >> word)
+		wordFreq[word]++;
+
+	// now iterating over word, freq pair and printing
+	// them in <, > format
+	unordered_map<string, int>:: iterator p;
+	for (p = wordFreq.begin(); p != wordFreq.end(); p++)
+		cout << "(" << p->first << ", " << p->second << ")\n";
+}
+
+// Driver code
+int main()
+{
+	string str = "Qannaf AL-SAHMI GitHub "
+				" Hello in my GitHub Qannaf is a software engineer";
+	printFrequencies(str);
+	return 0;
+}
+```
+<p>Output</p>
+<pre>(engineer, 1)
+(software, 1)
+(a, 1)
+(is, 1)
+(AL-SAHMI, 1)
+(Qannaf, 2)
+(GitHub, 2)
+(Hello, 1)
+(in, 1)
+(my, 1)</pre>
+
+
+
+
+<p><strong>Methods of unordered_map :</strong></p>
+<ul><li><a href="https://www.geeksforgeeks.org/std-unordered_map-c/">at()</a>: This function in C++ unordered_map returns the reference to the value with the element as key k.</li><li><a href="https://www.geeksforgeeks.org/unordered_map-begin-in-c/">begin()</a>: Returns an iterator pointing to the first element in the container in the unordered_map container</li><li><a href="https://www.geeksforgeeks.org/unordered_map-end-function-in-c-stl/">end()</a>: Returns an iterator pointing to the position past the last element in the container in the unordered_map container</li><li><a href="https://www.geeksforgeeks.org/unordered_map-bucket-in-c-stl/">bucket():</a> Returns the bucket number where the element with the key k is located in the map.</li><li><a href="https://www.geeksforgeeks.org/stdbucket_count-stdbucket_size-unordered_map-cpp/">bucket_count:</a> bucket_count is used to count the total no. of buckets in the unordered_map. No parameter is required to pass into this function.</li><li><a href="https://www.geeksforgeeks.org/stdbucket_count-stdbucket_size-unordered_map-cpp/">bucket_size:</a> Returns the number of elements in each bucket of the unordered_map.</li><li><a href="https://www.geeksforgeeks.org/unordered_map-count-in-c/">count()</a>: Count the number of elements present in an unordered_map with a given key.</li><li><a href="https://www.geeksforgeeks.org/unordered_map-equal_range-in-c/">equal_range</a>: Return the bounds of a range that includes all the elements in the container with a key that compares equal to k.</li></ul>
+
+<br><br>
+
+<a name="2d4"></a>
+
+* unordered_multimap
+<br>
+
+Allows Duplicates: 
+We have discussed unordered_map in our previous post , but there is a limitation, we can not store duplicates in unordered_map, that is if we have a key-value pair already in our unordered_multimap and another pair is inserted, then both will be there whereas in case of unordered_map the previous value corresponding to the key is updated by the new value that is only would be there. Even can exist in unordered_multimap twice.
+
+Internal Representation: 
+The internal implementation of unordered_multimap is the same as that of unordered_map but for duplicate keys, another count value is maintained with each key-value pair. As pairs are stored in the hash table, there is no particular order among them but pair with same keys come together in data structure whereas pair with same values are not guaranteed to come together. 
+
+Time Complexity: 
+All operation on unordered_multimap takes a constant amount of time on an average but time can go to linear in the worst case depending on internally used hash function but in long run unordered_multimap outperforms multimap (tree-based multimap). 
+
+Functions: 
+unordered_multimap supports many functions which are demonstrated in the below code : 
+
+```CPP
+// C++ program to demonstrate various function of
+// unordered_multimap
+#include <bits/stdc++.h>
+using namespace std;
+
+// making typedef for short declaration
+typedef unordered_multimap<string, int>::iterator umit;
+
+// Utility function to print unordered_multimap
+void printUmm(unordered_multimap<string, int> umm)
+{
+	// begin() returns iterator to first element of map
+	umit it = umm.begin();
+
+	for (; it != umm.end(); it++)
+		cout << "<" << it->first << ", " << it->second
+			<< "> ";
+
+	cout << endl;
+}
+
+// Driver code
+int main()
+{
+	// empty initialization
+	unordered_multimap<string, int> umm1;
+
+	// Initialization bu intializer list
+	unordered_multimap<string, int> umm2(
+		{ { "apple", 1 },
+		{ "ball", 2 },
+		{ "apple", 10 },
+		{ "cat", 7 },
+		{ "dog", 9 },
+		{ "cat", 6 },
+		{ "apple", 1 } });
+
+	// Initialization by assignment operation
+	umm1 = umm2;
+	printUmm(umm1);
+
+	// empty returns true, if container is empty else it
+	// returns false
+	if (umm2.empty())
+		cout << "unordered multimap 2 is empty\n";
+	else
+		cout << "unordered multimap 2 is not empty\n";
+
+	// size returns total number of elements in container
+	cout << "Size of unordered multimap 1 is "
+		<< umm1.size() << endl;
+
+	string key = "apple";
+
+	// find and return any pair, associated with key
+	umit it = umm1.find(key);
+	if (it != umm1.end()) {
+		cout << "\nkey " << key << " is there in unordered "
+			<< " multimap 1\n";
+		cout << "\none of the value associated with " << key
+			<< " is " << it->second << endl;
+	}
+	else
+		cout << "\nkey " << key
+			<< " is not there in unordered"
+			<< " multimap 1\n";
+
+	// count returns count of total number of pair
+	// associated with key
+	int cnt = umm1.count(key);
+	cout << "\ntotal values associated with " << key
+		<< " are " << cnt << "\n\n";
+
+	printUmm(umm2);
+
+	// one insertion by makeing pair explicitly
+	umm2.insert(make_pair("dog", 11));
+
+	// insertion by initializer list
+	umm2.insert({ { "alpha", 12 }, { "beta", 33 } });
+	cout << "\nAfter insertion of <apple, 12> and <beta, "
+			"33>\n";
+	printUmm(umm2);
+
+	// erase deletes all pairs corresponding to key
+	umm2.erase("apple");
+	cout << "\nAfter deletion of apple\n";
+	printUmm(umm2);
+
+	// clear deletes all pairs from container
+	umm1.clear();
+	umm2.clear();
+
+	if (umm2.empty())
+		cout << "\nunordered multimap 2 is empty\n";
+	else
+		cout << "\nunordered multimap 2 is not empty\n";
+}
+```
+<p>Output</p>
+<pre><dog, 9>  <cat, 6>  <cat, 7>  <ball, 2>  <apple, 1>  <apple, 10>  <apple, 1>  
+unordered multimap 2 is not empty
+Size of unordered multimap 1 is 7
+
+key apple is there in unordered  multimap 1
+
+one of the value associated with apple is 1
+
+total values associated with apple are 3
+
+<dog, 9>  <cat, 6>  <cat, 7>  <ball, 2>  <apple, 1>  <apple, 10>  <apple, 1>  
+
+After insertion of <apple, 12> and <beta, 33>
+<alpha, 12>  <dog, 11>  <dog, 9>  <beta, 33>  <cat, 6>  <cat, 7>  <ball, 2>  <apple, 1>  <apple, 10>  <apple, 1>  
+
+After deletion of apple
+<alpha, 12>  <dog, 11>  <dog, 9>  <beta, 33>  <cat, 6>  <cat, 7>  <ball, 2>  
+
+unordered multimap 2 is empty</pre>
+
+How to access/delete if a specific value for a key? 
+If we want to check whether a specific is there or not, we need to loop over all pairs of key-value corresponding to k, in a similar way we can erase one copy of a specific from the data structure. There is no specified order in which all values of a key are stored.
+
+```CPP
+// C++ program to implement find and erase for specific
+// key-value pair for unordered_multimap
+#include <bits/stdc++.h>
+using namespace std;
+
+// making typedef for short declaration
+typedef unordered_multimap<string, int>::iterator umit;
+
+// function to check whether p is there in map or not
+bool find_kv(unordered_multimap<string, int>& umm,
+			pair<string, int> p)
+{
+	// equal_range returns pair of iterator of first and
+	// last position associated with key
+	pair<umit, umit> it = umm.equal_range(p.first);
+	umit it1 = it.first;
+
+	pair<string, int> tmp;
+
+	// looping over all values associated with key
+	while (it1 != it.second)
+	{
+		tmp = *it1;
+		if (tmp == p)
+			return true;
+		it1++;
+	}
+	return false;
+}
+
+// function to delete one copy of pair p from map umm
+void erase_kv(unordered_multimap<string, int>& umm,
+			pair<string, int> p)
+{
+	// equal_range returns pair of iterator of first and
+	// last position associated with key
+	pair<umit, umit> it = umm.equal_range(p.first);
+	umit it1 = it.first;
+	pair<string, int> tmp;
+
+	// looping over all values associated with key
+	while (it1 != it.second)
+	{
+		tmp = *it1;
+		if (tmp == p)
+		{
+			// iterator version of erase : deletes pair
+			// at that position only
+			umm.erase(it1);
+			break;
+		}
+		it1++;
+	}
+}
+
+// Utility function to print unordered_multimap
+void printUmm(unordered_multimap<string, int> umm)
+{
+	// begin() returns iterator to first element of map
+	umit it = umm.begin();
+	for (; it != umm.end(); it++)
+		cout << "<" << it->first << ", " << it->second
+			<< "> ";
+	cout << endl;
+}
+
+// Driver code
+int main()
+{
+	// initializing multimap by initializer list
+	unordered_multimap<string, int> umm({ { "apple", 1 },
+										{ "ball", 2 },
+										{ "apple", 10 },
+										{ "cat", 7 },
+										{ "dog", 9 },
+										{ "cat", 6 },
+										{ "apple", 1 } });
+
+	cout << "Initial content\n";
+	printUmm(umm);
+	pair<string, int> kv = make_pair("apple", 1);
+
+	// inserting one more <apple, 1> pair
+	umm.insert({ "apple", 1 });
+	cout << "\nAfter insertion of one more <apple, 1>\n";
+	printUmm(umm);
+
+	if (find_kv(umm, kv))
+		erase_kv(umm, kv);
+	else
+		cout << "key-value pair is not there in unordered "
+				"multimap\n";
+
+	cout << "\nAfter deletion one occurrence of <apple, "
+			"1>\n";
+	printUmm(umm);
+}
+```
+<p>Output</p>
+<pre>Initial content
+<dog, 9> <cat, 6> <cat, 7> <ball, 2> <apple, 1> <apple, 10> <apple, 1> 
+
+After insertion of one more <apple, 1>
+<dog, 9> <cat, 6> <cat, 7> <ball, 2> <apple, 1> <apple, 1> <apple, 10> <apple, 1> 
+
+After deletion one occurrence of <apple, 1>
+<dog, 9> <cat, 6> <cat, 7> <ball, 2> <apple, 1> <apple, 10> <apple, 1> </pre>
+
+
+
+
+<p><strong>Methods of unordered_multimap:</strong>&nbsp;</p>
+<ul><li><a href="https://www.geeksforgeeks.org/unordered_multimap-begin-and-end-function-in-c-stl/">begin()</a>– Returns an iterator pointing to the first element in the container or to the first element in one of its bucket.</li><li><a href="https://www.geeksforgeeks.org/unordered_multimap-begin-and-end-function-in-c-stl/">end()</a>– Returns an iterator pointing to the position after the last element in the container or to the position after the last element in one of its bucket.</li><li><a href="https://www.geeksforgeeks.org/unordered_multimap-count-function-in-c-stl/">count()</a>– Returns the number of elements in the container whose key is equal to the key passed in the parameter.</li><li><a href="https://www.geeksforgeeks.org/unordered_multimap-cbegin-function-in-c-stl/">cbegin()</a>– Returns a constant iterator pointing to the first element in the container or to the first element in one of its bucket.</li><li><a href="https://www.geeksforgeeks.org/unordered_multimap-cend-function-in-c-stl/">cend()</a>– Returns a constant iterator pointing to the position after the last element in the container or to the position after the last element in one of its bucket.</li><li><a href="https://www.geeksforgeeks.org/unordered_multimap-clear-function-in-c-stl/">clear() </a>– Clears the contents of the unordered_multimap container.</li><li><a href="https://www.geeksforgeeks.org/unordered_multimap-size-function-in-c-stl/">size()</a>– Returns the size of the unordered_multimap. It denotes the number of elements in that container.</li><li><a href="https://www.geeksforgeeks.org/unordered_multimap-swap-function-in-c-stl/">swap()</a>– Swaps the contents of two unordered_multimap containers. The sizes can differ of both the containers.</li><li><a href="https://www.geeksforgeeks.org/unordered_multimap-find-function-in-c-stl/">find()</a>– Returns an iterator which points to one of the elements which have the key k.</li><li><a href="https://www.geeksforgeeks.org/unordered_multimap-bucket_size-function-in-c-stl/">bucket_size()</a>– Returns the number of elements in the bucket n.</li><li><a href="https://www.geeksforgeeks.org/unordered_multimap-empty-function-in-c-stl/">empty()</a>– It returns true if the unordered_multimap container is empty. Otherwise, it returns false.</li><li><a href="https://www.geeksforgeeks.org/unordered_multimap-equal_range-function-in-c-stl/">equal_range()</a>– Returns the range in which all the element’s key is equal to a key.</li><li><a href="https://www.geeksforgeeks.org/unordered_multimap-operator-in-c/">operator=</a>– Copy/Assign/Move elements from different container.</li><li><a href="https://www.geeksforgeeks.org/unordered_multimap-max_size-function-in-c-stl/">max_size()</a>– Returns the maximum number of elements that the unordered_multimap container can hold.</li><li><a href="https://www.geeksforgeeks.org/unordered_multimap-load_factor-function-in-c-stl/">load_factor()</a>– Returns the current load factor in the unordered_multimap container.</li><li><a href="https://www.geeksforgeeks.org/unordered_multimap-key_eq-function-in-c-stl/">key_eq()</a>– Returns a boolean value according to the comparison.</li><li><a href="https://www.geeksforgeeks.org/unordered_multimap-emplace-function-in-c-stl/">emplace()</a>– Inserts a new {key, element} in the unordered_multimap container.</li><li><a href="https://www.geeksforgeeks.org/unordered_multimap-emplace_hint-function-in-c-stl/">emplace_hint()</a>– Inserts a new {key:element} in the unordered_multimap container.</li><li><a href="https://www.geeksforgeeks.org/unordered_multimap-bucket_count-function-in-c-stl/">bucket_count()</a>– Returns the total number of buckets in the unordered_multimap container.</li><li><a href="https://www.geeksforgeeks.org/unordered_multimap-bucket-function-in-c-stl/">bucket()</a>– Returns the bucket number in which a given key is.</li><li><a href="https://www.geeksforgeeks.org/unordered_multimap-max_load_factor-function-in-c-stl/">max_load_factor()</a>– Returns the maximum load factor of the unordered_multimap container.</li><li><a href="https://www.geeksforgeeks.org/unordered_multimap-rehash-function-in-c-stl/">rehash()</a>– Sets the number of buckets in the container to N or more.</li><li><a href="https://www.geeksforgeeks.org/unordered_multimap-reserve-function-in-c-stl/">reserve()</a>– Sets the number of buckets in the container (bucket_count) to the most appropriate number so that it contains at least n elements.</li><li><a href="https://www.geeksforgeeks.org/unordered_multimap-hash_function-in-c-stl/">hash_function()</a>– This hash function is a unary function that takes a single argument only and returns a unique value of type size_t based on it.</li><li><a href="https://www.geeksforgeeks.org/unordered_multimap-max_bucket_count-function-in-c-stl/">max_bucket_count()</a>– Returns the maximum number of buckets that the unordered multimap container can have.</li></ul>
+
+
+<br><br>
+<a name="3"></a>
+
+## Functions
+<a name="3a"></a>
+
+### Functors
+<p>Please note that the title is <strong>Functors</strong> (Not Functions)!!</p>
+<p style="text-align:justify">Consider a function that takes only one argument. However, while calling this function we have a lot more information that we would like to pass to this function, but we cannot as it accepts only one parameter. What can be done?</p>
+<p style="text-align:justify">One obvious answer might be global variables. However, good coding practices do not advocate the use of global variables and say they must be used only when there is no other alternative.</p>
+<p style="text-align:justify"><strong>Functors</strong> are objects that can be treated as though they are a function or function pointer. Functors are most commonly used along with STLs in a scenario like following:</p>
+<p>Below program uses <a href="https://www.geeksforgeeks.org/transform-c-stl-perform-operation-elements/">transform() in STL</a> to add 1 to all elements of arr[].</p>
+
+```CPP
+// A C++ program uses transform() in STL to add
+// 1 to all elements of arr[]
+#include <bits/stdc++.h>
+using namespace std;
+
+int increment(int x) { return (x+1); }
+
+int main()
+{
+	int arr[] = {1, 2, 3, 4, 5};
+	int n = sizeof(arr)/sizeof(arr[0]);
+
+	// Apply increment to all elements of
+	// arr[] and store the modified elements
+	// back in arr[]
+	transform(arr, arr+n, arr, increment);
+
+	for (int i=0; i<n; i++)
+		cout << arr[i] <<" ";
+
+	return 0;
+}
+```
+<p>Output</p>
+<pre>2 3 4 5 6</pre>
+
+
+```CPP
+// C++ program to demonstrate working of
+// functors.
+#include <bits/stdc++.h>
+using namespace std;
+
+// A Functor
+class increment
+{
+private:
+	int num;
+public:
+	increment(int n) : num(n) { }
+
+	// This operator overloading enables calling
+	// operator function () on objects of increment
+	int operator () (int arr_num) const {
+		return num + arr_num;
+	}
+};
+
+// Driver code
+int main()
+{
+	int arr[] = {1, 2, 3, 4, 5};
+	int n = sizeof(arr)/sizeof(arr[0]);
+	int to_add = 5;
+
+	transform(arr, arr+n, arr, increment(to_add));
+
+	for (int i=0; i<n; i++)
+		cout << arr[i] << " ";
+}
+```
+
+
+<p>Output</p>
+<pre>6 7 8 9 10</pre>
+
+<br><br>
+<a name="4"></a>
+
+## Iterators
+
+Introduction to iterators 
+
+```CPP
+// C++ program to demonstrate iterators
+
+#include <iostream>
+#include <vector>
+using namespace std;
+int main()
+{
+	// Declaring a vector
+	vector<int> v = { 1, 2, 3 };
+
+	// Declaring an iterator
+	vector<int>::iterator i;
+
+	int j;
+
+	cout << "Without iterators = ";
+	
+	// Accessing the elements without using iterators
+	for (j = 0; j < 3; ++j)
+	{
+		cout << v[j] << " ";
+	}
+
+	cout << "\nWith iterators = ";
+	
+	// Accessing the elements using iterators
+	for (i = v.begin(); i != v.end(); ++i)
+	{
+		cout << *i << " ";
+	}
+
+	// Adding one more element to vector
+	v.push_back(4);
+
+	cout << "\nWithout iterators = ";
+	
+	// Accessing the elements without using iterators
+	for (j = 0; j < 4; ++j)
+	{
+		cout << v[j] << " ";
+	}
+
+	cout << "\nWith iterators = ";
+	
+	// Accessing the elements using iterators
+	for (i = v.begin(); i != v.end(); ++i)
+	{
+		cout << *i << " ";
+	}
+
+	return 0;
+}
+```
+
+
+<p>Output</p>
+<pre>Without iterators = 1 2 3
+With iterators = 1 2 3
+Without iterators = 1 2 3 4
+With iterators = 1 2 3 4</pre>
+<br><br>
+
+<a name="4a"></a>
+
+### Iterators
+Operations of iterators :-
+<a name="4a1"></a><a name="4a2"></a>
+
+1. begin() :- This function is used to return the beginning position of the container.
+
+2. end() :- This function is used to return the after end position of the container.
+
+```CPP
+// C++ code to demonstrate the working of
+// iterator, begin() and end()
+#include<iostream>
+#include<iterator> // for iterators
+#include<vector> // for vectors
+using namespace std;
+int main()
+{
+	vector<int> ar = { 1, 2, 3, 4, 5 };
+	
+	// Declaring iterator to a vector
+	vector<int>::iterator ptr;
+	
+	// Displaying vector elements using begin() and end()
+	cout << "The vector elements are : ";
+	for (ptr = ar.begin(); ptr < ar.end(); ptr++)
+		cout << *ptr << " ";
+	
+	return 0;	
+}
+```
+<p>Output</p>
+<pre>The vector elements are : 1 2 3 4 5 </pre>
+
+
+<a name="4a3"></a>
+
+3. advance() :- This function is used to increment the iterator position till the specified number mentioned in its arguments.
+
+```CPP
+// C++ code to demonstrate the working of
+// advance()
+#include<iostream>
+#include<iterator> // for iterators
+#include<vector> // for vectors
+using namespace std;
+int main()
+{
+	vector<int> ar = { 1, 2, 3, 4, 5 };
+	
+	// Declaring iterator to a vector
+	vector<int>::iterator ptr = ar.begin();
+	
+	// Using advance() to increment iterator position
+	// points to 4
+	advance(ptr, 3);
+	
+	// Displaying iterator position
+	cout << "The position of iterator after advancing is : ";
+	cout << *ptr << " ";
+	
+	return 0;
+	
+}
+```
+<p>Output</p>
+<pre>The position of iterator after advancing is : 4 </pre>
+
+
+<a name="4a4"></a><a name="4a5"></a>
+
+4. next() :- This function returns the new iterator that the iterator would point after advancing the positions mentioned in its arguments.
+
+5. prev() :- This function returns the new iterator that the iterator would point after decrementing the positions mentioned in its arguments.
+```CPP
+// C++ code to demonstrate the working of
+// next() and prev()
+#include<iostream>
+#include<iterator> // for iterators
+#include<vector> // for vectors
+using namespace std;
+int main()
+{
+	vector<int> ar = { 1, 2, 3, 4, 5 };
+	
+	// Declaring iterators to a vector
+	vector<int>::iterator ptr = ar.begin();
+	vector<int>::iterator ftr = ar.end();
+	
+	
+	// Using next() to return new iterator
+	// points to 4
+	auto it = next(ptr, 3);
+	
+	// Using prev() to return new iterator
+	// points to 3
+	auto it1 = prev(ftr, 3);
+	
+	// Displaying iterator position
+	cout << "The position of new iterator using next() is : ";
+	cout << *it << " ";
+	cout << endl;
+	
+	// Displaying iterator position
+	cout << "The position of new iterator using prev() is : ";
+	cout << *it1 << " ";
+	cout << endl;
+	
+	return 0;
+}
+```
+<p>Output</p>
+<pre>The position of new iterator using next() is : 4 
+The position of new iterator using prev()  is : 3 </pre>
+
+
+
+<a name="4a6"></a>
+
+6. inserter() :- This function is used to insert the elements at any position in the container. It accepts 2 arguments, the container and iterator to position where the elements have to be inserted.
+
+```CPP
+// C++ code to demonstrate the working of
+// inserter()
+#include<iostream>
+#include<iterator> // for iterators
+#include<vector> // for vectors
+using namespace std;
+int main()
+{
+	vector<int> ar = { 1, 2, 3, 4, 5 };
+	vector<int> ar1 = {10, 20, 30};
+	
+	// Declaring iterator to a vector
+	vector<int>::iterator ptr = ar.begin();
+	
+	// Using advance to set position
+	advance(ptr, 3);
+	
+	// copying 1 vector elements in other using inserter()
+	// inserts ar1 after 3rd position in ar
+	copy(ar1.begin(), ar1.end(), inserter(ar,ptr));
+	
+	// Displaying new vector elements
+	cout << "The new vector after inserting elements is : ";
+	for (int &x : ar)
+		cout << x << " ";
+	
+	return 0;	
+}
+```
+<p>Output</p>
+<pre>The new vector after inserting elements is : 1 2 3 10 20 30 4 5 </pre>
+
+
+<strong>Types of Iterators :</strong>
+<ol><li><a href="https://www.geeksforgeeks.org/input-iterators-in-cpp/">Input Iterators</a></li><li><a href="https://www.geeksforgeeks.org/output-iterators-cpp/">Output Iterators</a></li><li><a href="https://www.geeksforgeeks.org/forward-iterators-in-cpp/">Forward Iterator</a></li><li><a href="https://www.geeksforgeeks.org/bidirectional-iterators-in-cpp/">Bidirectional Iterators</a></li><li><a href="https://www.geeksforgeeks.org/random-access-iterators-in-cpp/">Random-Access Iterators</a></li></ol>
+
+<a name="5"></a>
+
+## Utility Library
+
+<a name="5a"></a>
+
+### pair
+
+<a name="5a1"></a>
+
+* Syntax
+<pre>pair (data_type1, data_type2) Pair_name</pre>
+
+```CPP
+// CPP program to illustrate pair STL
+#include <iostream>
+#include <utility>
+using namespace std;
+
+int main()
+{
+	pair<int, string> PAIR1;
+
+	PAIR1.first = 100;
+	PAIR1.second = "Qannaf";
+
+	cout << PAIR1.first << " ";
+	cout << PAIR1.second << endl;
+
+	return 0;
+}
+```
+<p>Output</p>
+<pre>100 Qannaf</pre>
+
+<br><br>
+<a name="5a2"></a>
+
+* Initializing a pair
+<br>Different ways to initialize pair: 
+<pre>
+pair  g1;         //default
+pair  g2(1, 'a');  //initialized,  different data type
+pair  g3(1, 10);   //initialized,  same data type
+pair  g4(g3);    //copy of g3
+g2 = make_pair(1, 'a'); // by using the make_pair() function. </pre>
+
+```CPP
+// CPP program to illustrate
+// Initializing of pair STL
+#include <iostream>
+#include <utility>
+using namespace std;
+
+int main()
+{
+	pair<string, double> PAIR2("Qannaf AL-SAHMI", 29);
+
+	cout << PAIR2.first << " ";
+	cout << PAIR2.second << endl;
+
+	return 0;
+}
+```
+<p>Output</p>
+<pre>Qannaf AL-SAHMI 29</pre>
+
+<p><strong>Note:</strong> If not initialized, the first value of the pair gets automatically initialized.&nbsp;</p>
+
+```CPP
+// CPP program to illustrate
+// auto-initializing of pair STL
+#include <iostream>
+#include <utility>
+
+using namespace std;
+
+int main()
+{
+	pair<int, double> PAIR1;
+	pair<string, char> PAIR2;
+
+	// it is initialised to 0
+	cout << PAIR1.first;
+
+	// it is initialised to 0
+	cout << PAIR1.second;
+
+	cout << " ";
+
+	// // it prints nothing i.e NULL
+	cout << PAIR2.first;
+	
+	// it prints nothing i.e NULL
+	cout << PAIR2.second;
+
+	return 0;
+}
+```
+<p>Output</p>
+<pre>00</pre>
+
+
+<a name="5a3"></a>
+
+* Member Functions
+<a name="5a3a"></a>
+
+1. make_pair()
+<br>This template function allows to create a value pair without writing the types explicitly. 
+Syntax :
+<pre>Pair_name = make_pair (value1,value2);</pre>
+
+```CPP
+#include <iostream>
+#include <utility>
+using namespace std;
+
+int main()
+{
+	pair <int, char> PAIR1 ;
+	pair <string, double> PAIR2 ("GeeksForGeeks", 1.23) ;
+	pair <string, double> PAIR3 ;
+
+	PAIR1.first = 100;
+	PAIR1.second = 'G' ;
+
+	PAIR3 = make_pair ("GeeksForGeeks is Best",4.56);
+
+	cout << PAIR1.first << " " ;
+	cout << PAIR1.second << endl ;
+
+	cout << PAIR2.first << " " ;
+	cout << PAIR2.second << endl ;
+
+	cout << PAIR3.first << " " ;
+	cout << PAIR3.second << endl ;
+
+	return 0;
+}
+```
+<p>Output</p>
+<pre>100 G
+GeeksForGeeks 1.23
+GeeksForGeeks is Best 4.56</pre>
+
+
+<a name="5a3b"></a>
+
+2. operators(=, ==, !=, >=, <=) &swap()
+
+```CPP
+#include <iostream>
+#include<utility>
+
+using namespace std;
+
+int main()
+{
+	pair<char, int>pair1 = make_pair('A', 1);
+	pair<char, int>pair2 = make_pair('B', 2);
+
+	cout << "Before swapping:\n " ;
+	cout << "Contents of pair1 = "
+		<< pair1.first << " " << pair1.second ;
+	cout << "Contents of pair2 = "
+		<< pair2.first << " " << pair2.second ;
+	pair1.swap(pair2);
+
+	cout << "\nAfter swapping:\n ";
+	cout << "Contents of pair1 = "
+		<< pair1.first << " " << pair1.second ;
+	cout << "Contents of pair2 = "
+		<< pair2.first << " " << pair2.second ;
+
+	return 0;
+}
+```
+<p>Output</p>
+<pre>Before swapping:
+Contents of pair1 = (A, 1)
+Contents of pair2 = (B, 2)
+
+After swapping:
+Contents of pair1 = (B, 2)
+Contents of pair2 = (A, 1)</pre>
+
+
+
+
+<a name="5a3c"></a>
+
+<p><strong>3. tie() :</strong> This function works the same as in <a href="https://www.geeksforgeeks.org/tuples-in-c/">tuples</a>. It creates a tuple of lvalue references to its arguments i.e., to unpack the tuple (or here pair) values into separate variables. Just like in tuples, here are also two variants of tie, with and without “ignore”. “ignore” keyword ignores a particular tuple element from getting unpacked.&nbsp;<br>However, tuples can have multiple arguments but pairs only have two arguments. So, in case of pair of pairs, unpacking needs to be explicitly handled.&nbsp;<br><strong>Syntax :&nbsp;</strong></p>
+<pre>tie(int &amp;, int &amp;) = pair1; </pre>
+
+```CPP
+// CPP code to illustrate tie() in pairs
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+	pair<int, int> pair1 = { 1, 2 };
+	int a, b;
+	tie(a, b) = pair1;
+	cout << a << " " << b << "\n";
+
+	pair<int, int> pair2 = { 3, 4 };
+	tie(a, ignore) = pair2;
+
+	// prints old value of b
+	cout << a << " " << b << "\n";
+
+	// Illustrating pair of pairs
+	pair<int, pair<int, char> > pair3
+				= { 3, { 4, 'a' } };
+	int x, y;
+	char z;
+	
+	// tie(x,y,z) = pair3; Gives compilation error
+	// tie(x, tie(y,z)) = pair3; Gives compilation error
+	// Each pair needs to be explicitly handled
+	x = pair3.first;
+	tie(y, z) = pair3.second;
+	cout << x << " " << y << " " << z << "\n";
+	
+}
+
+// contributed by sarthak_eddy.
+```
+<p>Output</p>
+<pre>1 2
+3 2
+3 4 a</pre>
+
+
+
+```CPP
+//CPP program to illustrate pair in STL
+#include <iostream>
+#include <utility>
+#include <string>
+using namespace std;
+
+int main()
+{
+	pair <string, int> g1;
+	pair <string, int> g2("bit.do/", 3);
+	pair <string, int> g3(g2);
+	pair <int, int> g4(5, 10);
+
+	g1 = make_pair(string("http://"), 1);
+	g2.first = "AL-SAHMI";
+	g2.second = 2;
+
+	cout << "This is pair g" << g1.second << " with "
+		<< "value " << g1.first << "." << endl << endl;
+
+	cout << "This is pair g" << g3.second
+		<< " with value " << g3.first
+		<< "This pair was initialized as a copy of "
+		<< "pair g2" << endl << endl;
+
+	cout << "This is pair g" << g2.second
+		<< " with value " << g2.first
+		<< "\nThe values of this pair were"
+		<< " changed after initialization."
+		<< endl << endl;
+
+	cout << "This is pair g4 with values "
+		<< g4.first << " and " << g4.second
+		<< " made for showing addition. \nThe "
+		<< "sum of the values in this pair is "
+		<< g4.first+g4.second
+		<< "." << endl << endl;
+
+	cout << "We can concatenate the values of"
+		<< " the pairs g1, g2 and g3 : "
+		<< g1.first + g3.first + g2.first
+		<< endl << endl;
+
+	cout << "We can also swap pairs "
+		<< "(but type of pairs should be same) : "
+		<< endl;
+	cout << "Before swapping, " << "g1 has "
+		<< g1.first
+		<< " and g2 has " << g2.first << endl;
+	swap(g1, g2);
+	cout << "After swapping, "
+		<< "g1 has " << g1.first << " and g2 has "
+		<< g2.first;
+
+	return 0;
+}
+```
+<p>Output</p>
+<pre>This is pair g1 with value http://.
+
+This is pair g3 with value bit.do/This pair was initialized as a copy of pair g2
+
+This is pair g2 with value AL-SAHMI
+The values of this pair were changed after initialization.
+
+This is pair g4 with values 5 and 10 made for showing addition. 
+The sum of the values in this pair is 15.
+
+We can concatenate the values of the pairs g1, g2 and g3 : http://bit.do/AL-SAHMI
+
+We can also swap pairs (but type of pairs should be same) : 
+Before swapping, g1 has http:// and g2 has AL-SAHMI
+After swapping, g1 has AL-SAHMI and g2 has http://</pre>
+
+
+
+<a name="6"></a>
+<p><strong>References:</strong></p>
+<ul><li><a href="http://en.cppreference.com/w/cpp/" rel="noopener" target="_blank">http://en.cppreference.com/w/cpp</a></li><li><a href="http://cs.stmarys.ca/~porter/csc/ref/stl/headers.html" rel="noopener" target="_blank">http://cs.stmarys.ca/~porter/csc/ref/stl/headers.html</a></li><li><a href="http://www.cplusplus.com/reference/stl/" rel="noopener" target="_blank">http://www.cplusplus.com/reference/stl/</a></li></ul>
