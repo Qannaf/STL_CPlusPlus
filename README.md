@@ -1348,6 +1348,40 @@ After Swap
 Vector 1: 3 4 
 Vector 2: 1 2</pre>
 
+10. partial_sum()
+```CPP
+#include <vector>
+#include <numeric>
+#include <algorithm>
+#include <iterator>
+#include <iostream>
+#include <functional>
+
+ struct DivisibleBy
+    {
+        const int d;
+        DivisibleBy(int n) : d(n) {}
+        bool operator()(int n) const { return n % d == 0; }
+    };
+ 
+int main()
+{
+    std::vector<int> v(10, 2);
+    std::partial_sum(v.cbegin(), v.cend(), v.begin());
+    std::cout << "Vect = : ";
+    std::copy(v.cbegin(), v.cend(), std::ostream_iterator<int>(std::cout, " "));
+    std::cout << '\n';
+ 
+   
+ 
+    if (std::any_of(v.cbegin(), v.cend(), DivisibleBy(7))) {
+        std::cout << "At least one number is divisible by 7\n";
+    }
+}
+```
+<p>Output</p>
+<pre>Vect = : 2 4 6 8 10 12 14 16 18 20 
+At least one number is divisible by 7</pre>
 
 <strong>All Vector Functions :</strong>
 
