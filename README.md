@@ -1,7 +1,7 @@
 # The C++ Standard Template Library (STL)
 The Standard Template Library (STL) is a set of C++ template classes to provide common programming data structures and functions such as lists, stacks, arrays, etc. It is a library of container classes, algorithms, and iterators. It is a generalized library and so, its components are parameterized. A working knowledge of template classes is a prerequisite for working with STL.
 
-## STL has four components
+## Ttable des matières
 1. [Algorithms](#1)
     1. [Algorithm](#1a)
         1. [Sorting](#1a1)
@@ -43,7 +43,6 @@ The Standard Template Library (STL) is a set of C++ template classes to provide 
             1. [shift()](#1b1e)
             1. [Cshift()](#1b1f)
             1. [swap()](#1b1g)
-
 1. [Containers](#2)
     1. [Sequence Containers](#2a)
         1. [vector](#2a1)
@@ -758,10 +757,9 @@ int main()
 }
 ```
 <p>Output</p>
-Vector is not partitioned
+<pre>Vector is not partitioned
 Now, vector is partitioned after partition operation
-The partitioned vector is : 2 8 6 5 1 7
-<pre></pre>
+The partitioned vector is : 2 8 6 5 1 7</pre>
 
 <br><br>
 <a name="1a5c"></a><a name="1a5d"></a>
