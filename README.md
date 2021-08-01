@@ -7384,42 +7384,43 @@ gquiz.pop() :     20    30</pre>
 <a name="2b2"></a>
 
 * priority_queue
+
 ```CPP
-// CPP code to illustrate
-// Queue in Standard Template Library (STL)
+// Note that by default C++ creates a max-heap
+// for priority queue
 #include <iostream>
 #include <queue>
 
 using namespace std;
 
-// Print the queue
-void showq(queue<int> g)
+void showpq(priority_queue<int> gq)
 {
+	priority_queue<int> g = gq;
 	while (!g.empty()) {
-		cout << '\t' << g.front();
+		cout << '\t' << g.top();
 		g.pop();
 	}
 	cout << '\n';
 }
 
-// Driver Code
 int main()
 {
-	queue<int> gquiz;
+	priority_queue<int> gquiz;
 	gquiz.push(10);
-	gquiz.push(20);
 	gquiz.push(30);
+	gquiz.push(20);
+	gquiz.push(5);
+	gquiz.push(1);
 
-	cout << "The queue gquiz is : ";
-	showq(gquiz);
+	cout << "The priority queue gquiz is : ";
+	showpq(gquiz);
 
 	cout << "\ngquiz.size() : " << gquiz.size();
-	cout << "\ngquiz.front() : " << gquiz.front();
-	cout << "\ngquiz.back() : " << gquiz.back();
+	cout << "\ngquiz.top() : " << gquiz.top();
 
 	cout << "\ngquiz.pop() : ";
 	gquiz.pop();
-	showq(gquiz);
+	showpq(gquiz);
 
 	return 0;
 }
