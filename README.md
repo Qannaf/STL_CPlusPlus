@@ -7380,21 +7380,8 @@ gquiz.pop() :     20    30</pre>
 <br><br>
 
 
-* priority_queue
+
 <a name="2b2"></a>
-
-* queue
-```CPP
-```
-<p>Output</p>
-<pre></pre>
-<br><br>
-
-
-
-
-<a name="2b3"></a>
-
 
 * priority_queue
 ```CPP
@@ -7499,7 +7486,7 @@ gquiz.pop() :     5    10    20    30</pre>
 
 <br><br>
 
-<a name="2b4"></a>
+<a name="2b3"></a>
 
 * stack
 <br>The functions associated with stack are:&nbsp;<br><a href="https://www.geeksforgeeks.org/stack-empty-and-stack-size-in-c-stl/">empty()</a> – Returns whether the stack is empty – Time Complexity : O(1)&nbsp;<br><a href="https://www.geeksforgeeks.org/stack-empty-and-stack-size-in-c-stl/">size()</a> – Returns the size of the stack – Time Complexity : O(1)&nbsp;<br><a href="https://www.geeksforgeeks.org/stack-top-c-stl/">top()</a> – Returns a reference to the top most element of the stack – Time Complexity : O(1)&nbsp;<br><a href="https://www.geeksforgeeks.org/stack-push-and-pop-in-c-stl/">push(g)</a> – Adds the element ‘g’ at the top of the stack – Time Complexity : O(1)&nbsp;<br><a href="https://www.geeksforgeeks.org/stack-push-and-pop-in-c-stl/">pop()</a> – Deletes the top most element of the stack – Time Complexity : O(1)&nbsp;</p> 
