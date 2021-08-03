@@ -9727,7 +9727,7 @@ int main()
     return 0;
 }
 ```
-p>output</p>
+<p>output</p>
 <pre>5 * 2 = 10
 6 * 2 = 12
 2 * 10 = 20     3 * 10 = 30
