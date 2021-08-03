@@ -9446,3 +9446,159 @@ After swapping, g1 has AL-SAHMI and g2 has http://</pre>
 <a name="6"></a>
 <p><strong>References:</strong></p>
 <ul><li><a href="http://en.cppreference.com/w/cpp/" rel="noopener" target="_blank">http://en.cppreference.com/w/cpp</a></li><li><a href="http://cs.stmarys.ca/~porter/csc/ref/stl/headers.html" rel="noopener" target="_blank">http://cs.stmarys.ca/~porter/csc/ref/stl/headers.html</a></li><li><a href="http://www.cplusplus.com/reference/stl/" rel="noopener" target="_blank">http://www.cplusplus.com/reference/stl/</a></li></ul>
+
+
+# tips
+## Lambda function
+
+```CPP
+// ---------- C++ TUTORIAL 9 ----------
+#include <functional>
+#include <cstdlib>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <numeric>
+#include <sstream>
+#include <ctime>
+#include <cmath>
+#include<algorithm>
+
+std::vector<int> GenerateRandVec(int numOfNums,
+        int min, int max);
+
+int main() {
+    
+    // ----- LAMBDA EXPRESSIONS -----
+    
+    std::vector<int> vecVals = GenerateRandVec(10, 1, 50);
+    
+    // Lambda Expressions make it easy to perform list
+    // operations in one line of code. You designate
+    // them with []
+    // Here we sort a vector
+    std::sort(vecVals.begin(), vecVals.end(),[](int x, int y){ return x < y; });
+    std::cout<<"vector after sort:\n";
+    for(const auto &val: vecVals)std::cout << val << "\t";
+    std::cout << "\n";
+    
+    // copy_if works like filter does in other languages
+    // Here we keep only even values in a new vector
+    std::vector<int> evenVecVals;
+    std::cout << "even vector \n";
+    std::copy_if(vecVals.begin(), vecVals.end(),std::back_inserter(evenVecVals), [](int x){ return (x % 2) == 0; });
+    for(const auto &val: evenVecVals)std::cout << val << "\t";
+            
+    // ----- SUM A LIST -----
+    int sum = 0;
+    
+    // for_each cycles through all values
+    // [&] captures all variables used
+    // in the body of the lambda by reference
+    std::for_each(vecVals.begin(), vecVals.end(),[&] (int x) {sum += x; });
+    std::cout << "\t SUM : " << sum << "\n";
+            
+    // ----- END SUM A LIST -----
+            
+    // ----- PROBLEM DYNAMIC LIST DIVISABLE BY A VALUE -----
+            
+    // You can define what value is checked for divisability
+    // by passing the value to check in the capture list
+    // which lies between [] 
+    // Send a value entered by the user through the capture
+    // list and create a list based on it
+    int divisor;
+    std::vector<int> vecVals2;
+    std::cout << "List of values divisable by : ";
+    std::cin >> divisor;
+    std::cout << "vector withe divisor = "<<divisor<<"\n";
+    std::copy_if(vecVals.begin(), vecVals.end(),std::back_inserter(vecVals2), [divisor](int x){ return (x % divisor) == 0; });
+    for(const auto &val: vecVals2)std::cout << val << "\t";
+    std::cout <<"\n";
+            
+    // ----- END PROBLEM DYNAMIC LIST DIVISABLE BY A VALUE -----  
+            
+    // ----- MULTIPLY ALL VALUES BY 2 -----
+    std::vector<int> doubleVec;
+    
+    // For_each cycles through all values in the vector
+    // and doubles them. 
+    std::cout << "double vector\n";
+    std::for_each(vecVals.begin(), vecVals.end(),[&](int x){doubleVec.push_back(x * 2);});
+            
+    for(const auto &val: doubleVec)std::cout << val << "\t";
+    std::cout <<"\n";
+    
+    // ----- END MULTIPLY ALL VALUES BY 2 -----
+    
+    // ----- PERFORMING OPERATIONS USING MULTIPLE VECTORS -----
+    // Add values in separate vectors and save them to another
+    std::vector<int> vec1 = {1,2,3,4,5};
+    std::vector<int> vec2 = {1,2,3,4,5};
+    std::vector<int> vec3(5);
+    transform(vec1.begin(), vec2.end(),vec2.begin(), vec3.begin(),[](int x, int y) {return x + y;});
+    std::cout << "vec3 = vec1 + vec2 \n";
+    for(const auto &val: vec3)std::cout<< val << "\t";
+          
+    // ----- END PERFORMING OPERATIONS USING MULTIPLE VECTORS -----       
+            
+    // ----- TERNARY OPERATOR -----
+            
+    // A ternary operator works like a compact if else
+    // statement. If the condition is true the first
+    // value is stored and otherwise the second
+    int age = 43;
+    bool canIVote = (age >= 18) ? true : false;
+    // Shows bool values as true or false
+    std::cout.setf(std::ios::boolalpha);
+    std::cout << "Can Derek Vote : " << canIVote << "\n";
+    
+    // ----- END TERNARY OPERATOR -----
+    
+    // ----- RECURSIVE LAMBDA FUNCTIONS -----
+    
+    // Recursive Lambda to calculate Fibonacci Numbers
+    std::function<int(int)> Fib = [&Fib](int n) {return n < 2 ? n : Fib(n-1) + Fib(n-2);};
+    
+    // Fib(0) = 0
+    // Fib(1) = 1
+    // Fib(2) = 1+0 = 1
+    // Fib(3) = 1+1 = 2
+    // Fib(4) = 2+1 = 3
+    // fib(5) = 3+2 = 5
+    // fib(6) = 5+3 = 8
+    std::cout << "Fib 6 : " << Fib(6) << "\n";
+    
+    // ----- END RECURSIVE LAMBDA FUNCTIONS -----
+    
+ 
+    return 0;
+}
+
+std::vector<int> GenerateRandVec(int numOfNums,int min, int max)
+{
+    std::vector<int> vecValues;
+    srand(time(NULL));
+    int i = 0, randVal = 0;
+    while(i < numOfNums){
+        randVal = min + std::rand() % ((max + 1) - min);
+        vecValues.push_back(randVal);
+        i++;
+    }
+    return vecValues;
+}
+```
+<p>output</p>
+<pre>vector after sort:
+10      19      20      24      26      30      34      35      37      49
+even vector 
+10      20      24      26      30      34               SUM : 284
+List of values divisable by : 1
+vector withe divisor = 1
+10      19      20      24      26      30      34      35      37      49
+double vector
+20      38      40      48      52      60      68      70      74      98
+vec3 = vec1 + vec2 
+2       4       6       8       10      Can Derek Vote : true
+Fib 6 : 8
+</pre>
