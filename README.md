@@ -7525,6 +7525,7 @@ int main() {
 <a name="2c1"></a>
 
 * set 
+<br>
 Some basic functions associated with Set:
 	<ul><li><a href="https://www.geeksforgeeks.org/setbegin-setend-c-stl/">begin()</a> – Returns an iterator to the first element in the set.</li><li><a href="https://www.geeksforgeeks.org/setbegin-setend-c-stl/">end()</a> – Returns an iterator to the theoretical element that follows last element in the set.</li><li><a href="https://www.geeksforgeeks.org/setsize-c-stl/">size()</a> – Returns the number of elements in the set.</li><li><a href="https://www.geeksforgeeks.org/set-max_size-function-in-c-stl/">max_size()</a> – Returns the maximum number of elements that the set can hold.</li><li><a href="https://www.geeksforgeeks.org/setempty-c-stl/">empty()</a> – Returns whether the set is empty.</li></ul>
 
@@ -7637,7 +7638,7 @@ s2.upper_bound(40) :
 <a name="2c2"></a>
 
 * multiset
-
+<br>
 Some Basic Functions associated with multiset: 
 <br><a href="https://www.geeksforgeeks.org/multiset-begin-and-end-function-in-c-stl/">begin()</a> – Returns an iterator to the first element in the multiset&nbsp;<br><a href="https://www.geeksforgeeks.org/multiset-begin-and-end-function-in-c-stl/">end()</a> – Returns an iterator to the theoretical element that follows last element in the multiset&nbsp;<br><a href="https://www.geeksforgeeks.org/multiset-size-in-c-stl-with-examples/">size()</a> – Returns the number of elements in the multiset&nbsp;<br><a href="https://www.geeksforgeeks.org/multiset-max_size-in-c-stl/">max_size()</a> – Returns the maximum number of elements that the multiset can hold&nbsp;<br><a href="https://www.geeksforgeeks.org/multiset-empty-function-in-c-stl/">empty()</a> – Returns whether the multiset is empty</p>
 
@@ -7806,6 +7807,7 @@ int main()
 <a name="2c3"></a>
 
 * map
+
 <p>Maps are associative containers that store elements in a mapped fashion. Each element has a key value and a mapped value. No two mapped values can have same key values.<br><br>&nbsp;<br>Some basic functions associated with Map:<br><a href="https://www.geeksforgeeks.org/mapbegin-end-c-stl/" rel="noopener" target="_blank">begin()</a> – Returns an iterator to the first element in the map<br><a href="https://www.geeksforgeeks.org/mapbegin-end-c-stl/" rel="noopener" target="_blank">end()</a> – Returns an iterator to the theoretical element that follows last element in the map<br><a href="https://www.geeksforgeeks.org/mapsize-c-stl/" rel="noopener" target="_blank">size()</a> – Returns the number of elements in the map<br><a href="https://www.geeksforgeeks.org/map-max_size-in-c-stl/" rel="noopener" target="_blank">max_size()</a> – Returns the maximum number of elements that the map can hold<br><a href="https://www.geeksforgeeks.org/mapempty-c-stl/" rel="noopener" target="_blank">empty()</a> – Returns whether the map is empty<br><a href="https://www.geeksforgeeks.org/map-insert-in-c-stl/" rel="noopener" target="_blank">pair insert(keyvalue, mapvalue)</a> – Adds a new element to the map<br><a href="https://www.geeksforgeeks.org/map-erase-function-in-c-stl/" rel="noopener" target="_blank">erase(iterator position)</a> – Removes the element at the position pointed by the iterator<br><a href="https://www.geeksforgeeks.org/map-erase-function-in-c-stl/" rel="noopener" target="_blank">erase(const g)</a>– Removes the key value ‘g’ from the map<br><a href="https://www.geeksforgeeks.org/mapclear-c-stl/" rel="noopener" target="_blank">clear()</a> – Removes all the elements from the map</p>
 
 ```CPP
@@ -8107,7 +8109,7 @@ gquiz1.upper_bound(5) :     KEY = 6        ELEMENT = 50</pre>
 <a name="2d1"></a>
 
 * unordered_set
-
+<br>
 Set is an ordered sequence of unique keys whereas unordered_set is a set in which key can be stored in any order, so unordered. Set is implemented as a balanced tree structure that is why it is possible to maintain order between the elements (by specific tree traversal). The time complexity of set operations is O(log n) while for unordered_set, it is O(1). 
 
 ```CPP
@@ -8165,7 +8167,7 @@ c++
 in
 code</pre>
 
-A practical problem based on unordered_set – Given an array(list) of integers, find all the duplicates among them. 
+A practical problem based on unordered_set <br>– Given an array(list) of integers, find all the duplicates among them. 
 ```CPP
 // C++ program to find duplicate from an array using
 // unordered_set
@@ -8222,6 +8224,7 @@ int main()
 <a name="2d2"></a>
 
 * unordered_multiset 
+
 ```CPP
 // C++ program to demonstrate various function
 // of unordered_multiset
@@ -8499,7 +8502,8 @@ root3  1.732
 PI  3.14
 root2  1.414</pre>
 
-A practical problem based on unordered_map – given a string of words, find frequencies of individual words.
+A practical problem based on unordered_map <br> 
+– given a string of words, find frequencies of individual words.
 
 ```CPP
 // C++ program to find freq of every word using
@@ -8843,6 +8847,9 @@ int main()
 	// arr[] and store the modified elements
 	// back in arr[]
 	transform(arr, arr+n, arr, increment);
+
+	//with lambda function 
+	//transform(arr, arr+n, arr, [&](int x){return (x+n);});
 
 	for (int i=0; i<n; i++)
 		cout << arr[i] <<" ";
