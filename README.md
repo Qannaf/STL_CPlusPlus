@@ -9450,6 +9450,14 @@ After swapping, g1 has AL-SAHMI and g2 has http://</pre>
 
 # tips
 ## Lambda expressions
+C++ 11 introduced lambda expression to allow us write an inline function which can be used for short snippets of code that are not going to be reuse and not worth naming. In its simplest form lambda expression can be defined as follows:
+
+
+<pre><em>
+<strong>[ capture clause ] (parameters) -&gt; return-type  
+{   
+   definition of method   
+} </strong></em></pre>
 
 ```CPP
 #include <functional>
