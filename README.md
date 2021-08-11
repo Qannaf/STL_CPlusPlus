@@ -9743,3 +9743,40 @@ List of Odds
 1       3       5       7       9
 Number of Heads : 58
 Number of Tails : 42</pre>
+
+## Exception Handling in C++
+```CPP
+#include <iostream>
+#include <exception>
+using namespace std;
+
+struct MyException: public exception
+{
+  virtual const char* what() const throw(){return "\t my text";}
+} myex;
+
+
+double division(int a, int b) 
+{
+   if ( a%2!=0 || b %2!= 0 )    throw 5;
+ 
+   if( b == 0 )                 throw "Division by zero condition!";
+   if ( a < 0 || b < 0 )        throw std::invalid_argument( "received negative value :)" );
+   if(b==1000)                  throw myex;
+   return (a/b);
+}
+
+int main () 
+{
+   int x(-1), y(5);
+ 
+   try                                      {cerr << division(x, y) << "\n";}
+   catch (const int& e)                     {cerr <<e<<" is odd number"<< "\n";}
+   catch (const char& msg)                  { cerr << msg << "\n";}
+   catch( const std::invalid_argument& e )  {cerr<<"received negative value"; }
+   catch(MyException& e)                    {cerr<< e.what();}
+   catch(...)                               {std::cout <<"default exception";}
+
+   return 0;
+}
+```
